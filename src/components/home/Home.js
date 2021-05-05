@@ -1,13 +1,14 @@
 import React from "react";
 
-import Search from './Search'
 import HotelCards from './hotelcards/HotelCards'
+import Footer from '../layout/footer'
 
 function Home() {
     return (
         <>
         
         <HotelCards/>
+        <Footer/>
         </>
         
           
