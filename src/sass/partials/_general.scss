@@ -1,8 +1,98 @@
-.flex-container {
+h1{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 64px;
+	font-weight: 500;
+}
 
+h2{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 45px;
+	margin: 0;
+}
+
+h3{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 35px;
+	margin: 0;
+}
+
+h4{
+	font-family: 'Roboto', sans-serif;
+	font-size: 25px;
+	font-style: italic;
+	font-weight: 100;
+	margin: 0;
+}
+
+h5{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 25px;
+	margin: 0;
+}
+
+h6{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 20px;
+	margin: 0;
+	font-weight: bold;
+	
+}
+
+
+html{
+	color: $dark;
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+}
+p{
+	font-family: 'Roboto', sans-serif;
+	margin: 0;
+}
+a{
+	font-family: 'Roboto', sans-serif;
+}
+
+.container_hotel {
+	max-width: 1400px;
+	margin: 0 auto;
+	
+}
+.flex-container {
+	max-width: 1500px;
+	margin: 0 auto;
 	padding: 50px 20px;
 	padding-bottom: 250px;
 	justify-content: center;
 	display: flex;
 	flex-wrap: wrap;
+}
+
+.Button{
+	border-radius: 5px;
+	background-color: $yellow;
+	color: white;
+	font-weight: bold;
+	padding: 5px 10px;
+	max-width: 200px;
+
+}
+
+@media (max-width: 1500px){
+    .container_hotel {
+		max-width: 1000px;
+		
+		
+	}
+
+}
+@media (max-width: 1150px){
+    .container_hotel {
+		max-width: 700px;
+	}
+}
+
+@media (max-width: 1000px){
+    .container_hotel {
+		max-width: 1000px;
+	}
 }

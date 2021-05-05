@@ -9,25 +9,35 @@ import Logout from "../auth/Logout";
 function Nav() {
     const { user } = useContext(AuthContext);
     return (
-     
-             <Navbar expand='lg' >
+        <div className="container_hotel">
+            <Navbar expand='lg' >
                 <NavLink to="/" exact>
                     <Navbar.Brand> <img src={logo} alt="Logo" /></Navbar.Brand>
                 </NavLink>
                 <Navbar.Toggle aria-controls='basic-navbar-nav' />
                 <Navbar.Collapse id='basic-navbar-nav'>
                     <NavB className='ml-auto justify-content-end'>
+                        <NavLink to="/">Home</NavLink>
+                        <NavLink to="/contact">Contact</NavLink>
                         {user ? (
                         <>
                             <NavLink to="/admin">Admin</NavLink>
                             <Logout />
                         </>
                         ) : (
-                            <NavLink to="/register">Login</NavLink>
+                            <NavLink to="/register">
+                                <div className="Button">
+                                    <p>Login</p>
+                                </div>
+                            </NavLink>
                         )}
+                        
+                        
                     </NavB>
                 </Navbar.Collapse>
              </Navbar>
+        </div>
+             
      
     );
 }

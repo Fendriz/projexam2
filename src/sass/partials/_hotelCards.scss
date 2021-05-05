@@ -10,6 +10,7 @@
 	cursor: pointer;
 	margin:30px;
     background-color: $blue;
+	color: $dark;
 
 	&__img {
 		grid-area: image;
@@ -45,15 +46,17 @@
 		border-top-right-radius:  18px;
 		border-top-left-radius:  18px;
 		color:white;
-		padding: 10px;
+		margin: 10px;
 		text-align: center;
 	}
-	&__faction {
+	&__email {
 		grid-area: faction;
-		color:white;
 		padding: 10px;
-		border:8px solid white;
-		text-align: center;
+		padding-top: 20px;
+		background-color:white;
+		margin: 0 5px;
+		
+		
 	}
 	&__stats {
 		grid-area: stats;
@@ -65,10 +68,18 @@
 		color:white;
 		align-items: end;
 	}
+	&__stats p{
+		font-size: 14px;
+	}
 	&__text {
+		
+		margin: 0 5px;
+		
 		padding: 10px;
 		background-color: white;
+		
 	}
+	
 	&__stats-gender {
 		padding: 10px;
 		border-right: 1px solid white;
@@ -80,12 +91,16 @@
 		vertical-align: text-bottom;
 	}
 
-	&__stats-img {
-		height:  32px;
-	}
+	
+
 }
 
 .card:active {
+	transform: scale(1.15);
+	box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+}
+
+.card:hover {
 	transform: scale(1.15);
 	box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
 }

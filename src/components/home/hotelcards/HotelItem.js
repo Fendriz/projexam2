@@ -11,65 +11,39 @@ import Button from "react-bootstrap/Button";
 function HotelItem({ id, name, image, price,email,description,selfCatering,maxGuests }) {
     let catering;
 	return (
-        <>
-		{/* <Card>
-			<Card.Header>
-                <Card.Title className="card_title">{name}
-                    
-                </Card.Title>
-			</Card.Header>
-			<Card.Img variant="top" src={image} />
-            <Card.Text>{price}$ / Day</Card.Text>
-			<Card.Body>
-				<Card.Text>Rating: {email}</Card.Text>
-				<Card.Text>Released: {description}</Card.Text>
-                <div className="card_buttom">
-                    <div>
-                    <Card.Text>{selfCatering===true?catering="YES":catering="NO"}</Card.Text>
-                    <Card.Text>SELF CATERING</Card.Text>
-                    </div>
-                    <div>
-                    <Card.Text>{maxGuests}</Card.Text>
-                    <Card.Text>MAXGUESTS </Card.Text>
-                    </div>
-                </div>
-				<Link to={"game/" + id}>
-					<Button variant="secondary" id="button_view" block>
-						View
-					</Button>
-					
-				</Link>
-			</Card.Body>
-		</Card> */}
-                <div className="card hover">
-               
-					<div className="card__name">
-						<h2>{name}</h2>
-					</div>
-					<div className="card__img" style={{backgroundImage: `url(${image})`}}>
-                        <div className="card__price">
-                            <p> {price}$ / Day</p>
-                        </div>
-					</div>
-					<div class="card__faction">
-						<h3>{email}</h3>
-					</div>
-					<div class="card__text">
-						<p> {description}</p>
-					</div>
-					<div class="card__stats">
-						<div class="card__stats-gender">
-							<div class="selfCatering">{selfCatering===true?catering="YES":catering="NO"}</div>
-							<div class="type">SELF CATERING</div>
-						</div>
-						<div class="card__stats-text">
-							<div class="maxGuests">{maxGuests}</div>
-							<div class="type">MAXGUESTS</div>
-						</div>
-					</div>
-                </div>
+		<Link to={"hotel/" + id}>
+			<div className="card hover">
+		
+			<div className="card__name">
+				<h5>{name}</h5>
+			</div>
+			<div className="card__img" style={{backgroundImage: `url(${image})`}}>
+				<div className="card__price">
+					<h6> {price}$ / Day</h6>
+				</div>
+			</div>
+			<div className="card__email">
 				
-    </>
+				<p><b>Email: </b>{email}</p>
+			</div>
+			<div className="card__text">
+				<p><b>Info: </b></p>
+				<p> {description}</p>
+			</div>
+			<div className="card__stats">
+				<div class="card__stats-gender">
+					<div className="selfCatering"><h6>{selfCatering===true?catering="YES":catering="NO"}</h6></div>
+					<div className="type"><p>SELF CATERING</p></div>
+				</div>
+				<div className="card__stats-text">
+					<div className="maxGuests"><h6>{maxGuests}</h6></div>
+					<div className="type"><p>MAXGUESTS</p></div>
+				</div>
+				
+			</div>
+		</div>
+		</Link>
+		
 	);
 }
 HotelItem.propTypes = {

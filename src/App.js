@@ -10,6 +10,7 @@ import Hotels from "./components/admin/Hotels";
 import AddHotel from "./components/admin/AddHotel";
 import EditHotel from "./components/admin/EditHotel";
 import Dashboard from "./components/admin/Dashboard";
+import HotelDetails from "./components/home/hotelcards/HotelDetails";
 import Nav from "./components/layout/Nav";
 import "./sass/style.scss";
 
@@ -17,11 +18,16 @@ function App() {
     return (
         <AuthContextProvider>
             <Router>
+            
                 <Nav />
+         
+                
                     <Switch>
                         <Route path="/" exact component={Home} />
                         <Route path="/login" component={Login} />
                         <Route path="/register" component={Register} />
+                        {/* <Route path='/contact' component={Contact} /> */}
+                        <Route path="/hotel/:id" component={HotelDetails} />
                         <ProtectedRoute path="/admin" exact component={Dashboard} />
                         <ProtectedRoute path="/admin/hotels" exact component={Hotels} />
                         <ProtectedRoute path="/admin/hotels/add" exact component={AddHotel} />
