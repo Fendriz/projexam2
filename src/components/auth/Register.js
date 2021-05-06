@@ -10,19 +10,24 @@ function Register() {
     const { registerUser } = useContext(AuthContext);
 
     const history = useHistory();
-
+   
     function onSubmit(data) {
         console.log("data", data);
         registerUser(data.username);
-        history.push("/admin");
+        registerUser(data.password);
+        history.push("/login");
     }
 
     return (
         <Form onSubmit={handleSubmit(onSubmit)}>
-            <h1>Login</h1>
+            <h1>Register</h1>
             <Form.Group>
                 <Form.Label>Name</Form.Label>
-                <Form.Control placeholder="Enter your username" {...register('username')} />
+                <Form.Control name="username" placeholder="Enter your username" {...register('username')} />
+            </Form.Group>
+            <Form.Group>
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control name="password" placeholder="Enter your password" {...register('password')} />
             </Form.Group>
 
             <Button type="submit">Submit</Button>

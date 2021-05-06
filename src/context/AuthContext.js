@@ -3,14 +3,21 @@ import React, { createContext, useState } from "react";
 const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
-    const existingUser = localStorage.getItem("user") || null;
 
-    const [user, setUser] = useState(existingUser);
+   
 
-    function registerUser(username) {
-        localStorage.setItem("user", JSON.stringify(username));
+       
+    const existingUsers = Object.keys(localStorage);
+         
 
-        setUser(username);
+
+    const [user, setUser] = useState(existingUsers);
+    // console.log(existingUser);
+    function registerUser(username, password) {
+        localStorage.setItem(username, JSON.stringify(password));
+        
+        setUser({...existingUsers, username});
+        console.log(existingUsers);
     }
 
     function logout() {

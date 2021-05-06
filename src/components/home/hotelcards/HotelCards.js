@@ -38,7 +38,18 @@ function HotelCards() {
     }, []);
 
     if (loading) {
-        return <Spinner animation="border" className="spinner" />;
+        return (
+        <>
+            <div className="search">
+                <div className ="search_text">
+                    <h1>Hotels In Bergen</h1>
+                    <Search handleSearch={filter}/> 
+                </div>
+            </div>
+            <Spinner animation="border" className="spinner" />
+        </>
+        
+        );
         
     }
     if(!loading) {
@@ -70,24 +81,27 @@ function HotelCards() {
                 </div>
             </div>
             {error && <div className="error">{error}</div>}
-            <div className="flex-container">
-                {filterdHotels.map((hotel) => {
-                     const { id, name, image, price, email, description,selfCatering,maxGuests } = hotel;
-                    return (
-                        <HotellItem
-                        id={id}
-                        name={name}
-                        image={image}
-                        price={price}
-                        email={email}
-                        description={description}
-                        selfCatering={selfCatering}
-                        maxGuests={maxGuests}
-                        key={id}
-                        />
-                    );
-                })}
+            <div className="hotelCards">
+                <div className="flex-container">
+                    {filterdHotels.map((hotel) => {
+                        const { id, name, image, price, email, description,selfCatering,maxGuests } = hotel;
+                        return (
+                            <HotellItem
+                            id={id}
+                            name={name}
+                            image={image}
+                            price={price}
+                            email={email}
+                            description={description}
+                            selfCatering={selfCatering}
+                            maxGuests={maxGuests}
+                            key={id}
+                            />
+                        );
+                    })}
+                </div>
             </div>
+            
         </>
     );
 }

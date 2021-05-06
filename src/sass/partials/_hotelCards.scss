@@ -104,3 +104,20 @@
 	transform: scale(1.15);
 	box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
 }
+.card p {
+	font-size: 15px;
+}
+
+.card__stats h6{
+	font-weight: bold;
+}
+.hotelCards{
+	background-image: url("../../images/home3.png");
+  
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+	padding-top: 60px;
+	padding-bottom: 70px;
+}

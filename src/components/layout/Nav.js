@@ -5,9 +5,12 @@ import NavB from "react-bootstrap/Nav";
 import logo from '../../images/logo1.png';
 import { AuthContext } from "../../context/AuthContext";
 import Logout from "../auth/Logout";
+import Button from "react-bootstrap/Button";
 
 function Nav() {
     const { user } = useContext(AuthContext);
+
+  
     return (
         <div className="container_hotel">
             <Navbar expand='lg' >
@@ -19,18 +22,14 @@ function Nav() {
                     <NavB className='ml-auto justify-content-end'>
                         <NavLink to="/">Home</NavLink>
                         <NavLink to="/contact">Contact</NavLink>
-                        {user ? (
-                        <>
-                            <NavLink to="/admin">Admin</NavLink>
-                            <Logout />
-                        </>
-                        ) : (
-                            <NavLink to="/register">
-                                <div className="Button">
+                      
+                            <NavLink to="/login">
+                                {/* <div className="Button">
                                     <p>Login</p>
-                                </div>
+                                </div> */}
+                                <Button class="button">Login</Button>
                             </NavLink>
-                        )}
+                     
                         
                         
                     </NavB>

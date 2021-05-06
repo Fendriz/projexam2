@@ -17,16 +17,21 @@
 
 .navbar-nav a{
     padding: 10px 0;
-    color: $dark;
+    color: $blue;
     font-weight: bold;
 }
+.navbar a:hover{
+    text-decoration: none;
+    color: $yellow;
+  
+} 
 
 
 @media (min-width: 992px){
     .navbar-nav a{
         padding: 0 20px;
         align-self: center;
-        color: $dark;
+        color: $blue;
         font-weight: bold;
     }
 
