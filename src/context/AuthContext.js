@@ -5,7 +5,7 @@ const AuthContext = createContext();
 const AuthContextProvider = ({ children }) => {
   // const users = Object.entries(localStorage);
 
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState(Object.entries(localStorage));
   const [islogged, setlogged] = useState(false);
   // console.log(existingUser);
   function registerUser({ username, password }) {
@@ -15,12 +15,12 @@ const AuthContextProvider = ({ children }) => {
     // console.log(users);
   }
   function login({ username, password }) {
-    console.log(users);
+    
     if (users.length !== 0) {
       users.map((user) => {
-        console.log(user);
+       
         if (user[0] === username && user[1] === password) {
-          console.log("hurray");
+          
           setlogged(true);
         }
       });

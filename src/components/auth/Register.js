@@ -13,7 +13,7 @@ function Register() {
 
   function onSubmit(data) {
     registerUser(data);
-    console.log(users);
+   
     history.push("/login");
   }
 

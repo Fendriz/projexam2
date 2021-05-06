@@ -2,40 +2,47 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import NavB from "react-bootstrap/Nav";
-import logo from "../../images/logo1.png";
+import Logo from "../../images/logo1.png";
+import Logoinv from "../../images/logoinv.png";
 import { AuthContext } from "../../context/AuthContext";
 import Logout from "../auth/Logout";
 import Button from "react-bootstrap/Button";
 
 function Nav() {
   const { islogged } = useContext(AuthContext);
-  console.log("dsafasdfasfafdsasdf");
+  console.log(islogged);
   return (
-    <div className="container_hotel">
+    <div className="Navigation" style={islogged?{backgroundColor:"#00367A"}:{color:"white"}} >
+    <div className="container_hotel" >
       <Navbar expand="lg">
         <NavLink to="/" exact>
           <Navbar.Brand>
-            {" "}
-            <img src={logo} alt="Logo" />
+            <img src={islogged?Logoinv:Logo} alt="Logo" />
           </Navbar.Brand>
         </NavLink>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav" style={islogged?{backgroundColor:"#EE4B4D"}:{color:"#EEB84B"}}/>
         <Navbar.Collapse id="basic-navbar-nav">
           <NavB className="ml-auto justify-content-end">
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/contact">Contact</NavLink>
+            <NavLink to="/" style={islogged?{color:"white"}:{color:"#00367A"}} >Home</NavLink>
+            <NavLink to="/contact" style={islogged?{color:"white"}:{color:"#00367A"}}>Contact</NavLink>
             {islogged ? (
+              <>
               <NavLink to="/admin"></NavLink>
+              <Logout />
+              </>
             ) : (
-              <NavLink to="/login"></NavLink>
+              <NavLink to="/login">
+                <Button class="button" >Login</Button>
+              </NavLink>
             )}
             {/* <div className="Button">
                                     <p>Login</p>
                                 </div> */}
-            <Button class="button">Login</Button>
+           
           </NavB>
         </Navbar.Collapse>
       </Navbar>
+    </div>
     </div>
   );
 }

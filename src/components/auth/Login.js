@@ -10,12 +10,16 @@ function Login() {
   const { register, handleSubmit } = useForm();
   const history = useHistory();
 
+  if(islogged){
+    history.push("/admin")
+  }
+
   function onSubmit(data) {
     // if (login(credentials.username)) {
 
     // }
-    console.log(login(data));
-    console.log(islogged);
+    login(data);
+   
     // if (login(data)) {
     // history.push("/admin");
     // console.log("finally");
