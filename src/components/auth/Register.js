@@ -6,33 +6,40 @@ import Form from "react-bootstrap/Form";
 import { AuthContext } from "../../context/AuthContext";
 
 function Register() {
-    const { register, handleSubmit } = useForm();
-    const { registerUser } = useContext(AuthContext);
+  const { register, handleSubmit } = useForm();
+  const { registerUser } = useContext(AuthContext);
+  const { users } = useContext(AuthContext);
+  const history = useHistory();
 
-    const history = useHistory();
-   
-    function onSubmit(data) {
-        console.log("data", data);
-        registerUser(data.username);
-        registerUser(data.password);
-        history.push("/login");
-    }
+  function onSubmit(data) {
+    registerUser(data);
+    console.log(users);
+    history.push("/login");
+  }
 
-    return (
-        <Form onSubmit={handleSubmit(onSubmit)}>
-            <h1>Register</h1>
-            <Form.Group>
-                <Form.Label>Name</Form.Label>
-                <Form.Control name="username" placeholder="Enter your username" {...register('username')} />
-            </Form.Group>
-            <Form.Group>
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control name="password" placeholder="Enter your password" {...register('password')} />
-            </Form.Group>
+  return (
+    <Form onSubmit={handleSubmit(onSubmit)}>
+      <h1>Register</h1>
+      <Form.Group>
+        <Form.Label>Name</Form.Label>
+        <Form.Control
+          name="username"
+          placeholder="Enter your username"
+          {...register("username")}
+        />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Password</Form.Label>
+        <Form.Control
+          name="password"
+          placeholder="Enter your password"
+          {...register("password")}
+        />
+      </Form.Group>
 
-            <Button type="submit">Submit</Button>
-        </Form>
-    );
+      <Button type="submit">Submit</Button>
+    </Form>
+  );
 }
 
 export default Register;
