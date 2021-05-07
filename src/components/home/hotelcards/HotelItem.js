@@ -9,7 +9,7 @@ import Button from "react-bootstrap/Button";
 
 
 function HotelItem({ id, name, image, price,email,description,selfCatering,maxGuests }) {
-    let catering;
+  
 	return (
 		<Link to={"hotel/" + id}>
 			<div className="card hover">
@@ -32,7 +32,7 @@ function HotelItem({ id, name, image, price,email,description,selfCatering,maxGu
 			</div>
 			<div className="card__stats">
 				<div class="card__stats-gender">
-					<div className="selfCatering"><h6>{selfCatering===true?catering="YES":catering="NO"}</h6></div>
+					<div className="selfCatering"><h6>{selfCatering===true?"YES":"NO"}</h6></div>
 					<div className="type"><p>SELF CATERING</p></div>
 				</div>
 				<div className="card__stats-text">

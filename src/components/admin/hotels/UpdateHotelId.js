@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { BASE_URL, headers, PATCH } from "../../constants/api";
+import { BASE_URL, headers, PATCH } from "../../../constants/api";
 import DeleteHotel from "./DeleteHotel";
 
 function AddHotel() {
@@ -43,12 +43,12 @@ function AddHotel() {
                 <h1>Edit Hotel</h1>
                 <Form.Group>
                     <Form.Label>Name</Form.Label>
-                    <Form.Control name="name" defaultValue={hotel.name} placeholder="Enter a name for the hotel" {...register(hotel.name)}/>
+                    <Form.Control name="name" defaultValue={hotel.name} placeholder="Enter a name for the hotel" {...register('name')} />
                 </Form.Group>
 
                 <Form.Group>
                     <Form.Label>Email</Form.Label>
-                    <Form.Control name="email" defaultValue={hotel.email} placeholder="Enter an email address" {...register(hotel.name)} />
+                    <Form.Control name="email" defaultValue={hotel.email} placeholder="Enter an email address" {...register('email')}/>
                 </Form.Group>
 
                 <Button type="submit">Update</Button>

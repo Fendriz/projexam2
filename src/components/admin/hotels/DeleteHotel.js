@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { confirmAlert } from "react-confirm-alert";
 import Button from "react-bootstrap/Button";
-import { BASE_URL, headers, DELETE } from "../../constants/api";
+import { BASE_URL, headers, DELETE } from "../../../constants/api";
 
 import "react-confirm-alert/src/react-confirm-alert.css";
 

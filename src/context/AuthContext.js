@@ -31,12 +31,17 @@ const AuthContextProvider = ({ children }) => {
   function logout() {
     setlogged(false);
     // setUsers(null);
-    localStorage.removeItem("user");
+    
+  }
+
+  function removeUser({username}){
+
+    localStorage.removeItem(username);
   }
 
   return (
     <AuthContext.Provider
-      value={{ users, islogged, registerUser, logout, login }}
+      value={{ users, islogged, registerUser, logout, login, removeUser }}
     >
       {children}
     </AuthContext.Provider>

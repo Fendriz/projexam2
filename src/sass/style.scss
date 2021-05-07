@@ -4,7 +4,10 @@ $light-blue:#A9BFDB;
 $red:#EE4B4D;
 $yellow:#EEB84B;
 $grey:#B6B7B7;
+$lightGrey: #F3F3F3;
 $dark:#3D3D3D;
+$darkRed:#bb2325;
+$darkYellow:#d39823;
 
 
 @import "partials/_home";
@@ -14,3 +17,7 @@ $dark:#3D3D3D;
 @import "partials/_hotelDetail";
 @import "partials/_footer";
 @import "partials/_contact";
+@import "partials/_login";
+@import "partials/_form";
+@import "partials/_register";
+@import "partials/_admin";

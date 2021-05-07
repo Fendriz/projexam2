@@ -4,12 +4,29 @@ import { useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { AuthContext } from "../../context/AuthContext";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+const schema = yup.object().shape({
+  username: yup
+      .string()
+      .required("No name is provided")
+      .min(2, "Name is to short - should be minimun 2 characters"),
+  password: yup
+      .string()
+      .required("No password is provided")
+      .min(8, "Password is to short - should be minimun 8 characters"),
+
+});
 
 function Register() {
-  const { register, handleSubmit } = useForm();
+  
   const { registerUser } = useContext(AuthContext);
   const { users } = useContext(AuthContext);
   const history = useHistory();
+  const { register, handleSubmit, formState: {errors} } = useForm({
+    resolver: yupResolver(schema),
+  });
 
   function onSubmit(data) {
     registerUser(data);
@@ -18,8 +35,10 @@ function Register() {
   }
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
-      <h1>Register</h1>
+    <div className="formBackground" id="register">
+      <div className="formContainer">
+    <Form onSubmit={handleSubmit(onSubmit)} className="register_form">
+      <h2>Register</h2>
       <Form.Group>
         <Form.Label>Name</Form.Label>
         <Form.Control
@@ -27,18 +46,27 @@ function Register() {
           placeholder="Enter your username"
           {...register("username")}
         />
+         {errors.username && (
+                    <p class='text-danger'>{errors.username.message}</p>
+                )}
       </Form.Group>
       <Form.Group>
         <Form.Label>Password</Form.Label>
         <Form.Control
+          type="password"
           name="password"
           placeholder="Enter your password"
           {...register("password")}
         />
+         {errors.password && (
+                    <p class='text-danger'>{errors.password.message}</p>
+                )}
       </Form.Group>
 
       <Button type="submit">Submit</Button>
     </Form>
+    </div>
+    </div>
   );
 }
 

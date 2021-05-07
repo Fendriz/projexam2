@@ -1,39 +1,22 @@
-.contactHome{
+#contactHome{
     background-image: url("../../images/home2.png");
-    
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    padding-top: 70px;
-    padding-bottom: 70px;
+    height: auto;
    
 }
-.contactHome h2{
+#contactPage{
+    background-image: url("../../images/home1.png");
+    height: 100vh;
+  
+   
+}
+#contactPage .formContainer {
+    margin-top: 50px;
+}
+#contactPage h2,#contactHome h2{
     color: white;
     padding-bottom: 40px;
    
 }
 
-.contactContainer {
-    max-width: 600px;
-    margin: 0 auto;
-}
 
-.form-control {
-    border: 3px solid $yellow;
-}
-.form-label {
-    font-family: 'Roboto', sans-serif;
-    color: white;
-}
 
-.form-control:focus {
-    border: 3px solid $blue;
-    box-shadow: 255 255 255 0.2rem $blue;
-}
-.contactHome .text-danger{
-    color: $red!important;
-    background-color: rgba(0, 0, 0, 0.226);
-
-}

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import Button from "react-bootstrap/Button";
 
 function Login() {
     const { logout } = useContext(AuthContext);
@@ -11,7 +12,7 @@ function Login() {
         history.push("/");
     }
 
-    return <button onClick={doLogout}>Log out</button>;
+    return <Button class="button" onClick={doLogout}>Log out</Button>;
 }
 
 export default Login;

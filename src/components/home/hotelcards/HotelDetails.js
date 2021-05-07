@@ -16,6 +16,7 @@ function GameDetails() {
     const [error, setError] = useState(null);
 
 	let { id } = useParams();
+    console.log(id)
     let catering;
 	const url = BASE_URL + "establishments/" + id;
 

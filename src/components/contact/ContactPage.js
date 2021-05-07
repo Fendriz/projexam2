@@ -1,10 +1,10 @@
 import React from "react";
 import ContactForm from "./Contactform";
 
-function ContactHome() {
+function ContactPage() {
     return (
         <>
-            <div className="formBackground" id="contactHome">
+            <div className="formBackground" id="contactPage">
                 <div className="formContainer">
                     <h2>Contact Us</h2>
                     <ContactForm />
@@ -15,4 +15,4 @@ function ContactHome() {
         </>
     );
 }
-export default ContactHome;
+export default ContactPage;

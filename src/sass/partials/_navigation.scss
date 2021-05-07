@@ -18,12 +18,37 @@
 .navbar-nav a{
     padding: 10px 0;
     color: $blue;
-    font-weight: bold;
+ 
 }
 .navbar a:hover{
     text-decoration: none;
     color: $yellow;
   
+}
+.navNormal{
+    background-color: white;
+} 
+.navAdmin{
+    background-color: $blue;
+} 
+.navAdmin .navbar-nav a{
+    color: white;
+} 
+.navAdmin a:hover{
+    color: $red;
+} 
+.navAdmin Button{
+    background-color: $red;
+    color: white;
+} 
+.navAdmin Button:hover{
+    background-color: $darkRed;
+    color: white;
+} 
+
+.navAdmin .navbar-toggler{
+    background-color: $red;
+    color: white;
 } 
 
 
@@ -32,7 +57,7 @@
         padding: 0 20px;
         align-self: center;
         color: $blue;
-        font-weight: bold;
+      
     }
 
 }
