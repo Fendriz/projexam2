@@ -1,0 +1,44 @@
+
+.adminMenu{
+    padding-top: 70px;
+    display: flex;
+}
+
+.adminMenu div{
+    padding: 10px 20px;
+    background-color: $lightGrey;
+
+}
+.adminMenu div:hover{
+    
+    background-color: $red;
+
+}
+.adminMenu div:hover a{
+    color: white;
+    text-decoration: none;
+}
+
+.adminMenu a{
+    color:$dark;
+}
+
+.adminMenu div:first-child {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.adminMenu div:last-child {
+   
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+.adminHotelMenu{
+    padding-top: 20px;
+}
+
+.form_update{
+    background-color: $lightGrey;
+    margin-top:60px;
+    padding: 10px;
+}
