@@ -2,11 +2,15 @@
 .adminMenu{
     padding-top: 70px;
     display: flex;
+   
 }
 
 .adminMenu div{
     padding: 10px 20px;
     background-color: $lightGrey;
+    border-bottom: 1px solid $grey;
+    border-top: 1px solid $grey;
+    
 
 }
 .adminMenu div:hover{
@@ -26,12 +30,14 @@
 .adminMenu div:first-child {
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
+    border-left: 1px solid $grey;
 }
 
 .adminMenu div:last-child {
    
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
+    border-right: 1px solid $grey;
 }
 .adminHotelMenu{
     padding-top: 20px;
@@ -40,5 +46,24 @@
 .form_update{
     background-color: $lightGrey;
     margin-top:60px;
-    padding: 10px;
+    padding: 20px;
+}
+.form_update .form-control {
+    border: 1px solid $grey;
+}
+
+.form_update .form-label {
+ 
+    color: $dark;
+}
+.form_update-select{
+    background-color: $red;
+    color: white;
+    
+}
+
+.form_update-select .select_heading {
+    margin-left: 5px;
+   
+   
 }

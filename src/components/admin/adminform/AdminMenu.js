@@ -22,7 +22,7 @@ function AdminMenu({active}) {
 	);
 }
 AdminMenu.propTypes = {
-	items: PropTypes.number.isRequired,
+	active: PropTypes.number.isRequired,
 
 };
 export default AdminMenu;

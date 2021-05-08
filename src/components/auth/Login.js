@@ -15,22 +15,22 @@ function Login() {
   const history = useHistory();
   const [ FaultyPwd, setFaultyPwd ] = useState(false);
 
-  
 
-  if(islogged){
-    history.push("/admin/hotels/create")
-  }
+  
   console.log(FaultyPwd);
   function onSubmit(data) {
     // if (login(credentials.username)) {
-      console.log(data);
+    
       login(data);
       if(!islogged){
        
         setFaultyPwd(true);
       }
-     
-    
+        
+  if(islogged){
+    history.push("/admin/hotels/create")
+  }
+
     
    
     // if (login(data)) {

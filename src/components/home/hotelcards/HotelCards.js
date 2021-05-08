@@ -52,9 +52,7 @@ function HotelCards() {
         );
         
     }
-    if(!loading) {
-        console.log(hotels)
-    }
+    console.log(hotels[9].name)
 
     function filter(searchTerm) {
 
@@ -71,39 +69,41 @@ function HotelCards() {
         console.log(filteredArray)
         setFilteredHotels(filteredArray)
     }
-
-    return (
-        <>
-            <div className="search">
-                <div className ="search_text">
-                    <h1>Hotels In Bergen</h1>
-                    <Search handleSearch={filter}/> 
+    if(!loading) {
+        return (
+            <>
+                <div className="search">
+                    <div className ="search_text">
+                        <h1>Hotels In Bergen</h1>
+                        <Search handleSearch={filter}/> 
+                    </div>
                 </div>
-            </div>
-            {error && <div className="error">{error}</div>}
-            <div className="hotelCards">
-                <div className="flex-container">
-                    {filterdHotels.map((hotel) => {
-                        const { id, name, image, price, email, description,selfCatering,maxGuests } = hotel;
-                        return (
-                            <HotellItem
-                            id={id}
-                            name={name}
-                            image={image}
-                            price={price}
-                            email={email}
-                            description={description}
-                            selfCatering={selfCatering}
-                            maxGuests={maxGuests}
-                            key={id}
-                            />
-                        );
-                    })}
+                {error && <div className="error">{error}</div>}
+                <div className="hotelCards">
+                    <div className="flex-container">
+                        {filterdHotels.map((hotel) => {
+                            const { id, name, image, price, email, description,selfCatering,maxGuests } = hotel;
+                            return (
+                                <HotellItem
+                                id={id}
+                                name={name}
+                                image={image}
+                                price={price}
+                                email={email}
+                                description={description}
+                                selfCatering={selfCatering}
+                                maxGuests={maxGuests}
+                                key={id}
+                                />
+                            );
+                        })}
+                    </div>
                 </div>
-            </div>
-            
-        </>
-    );
+                
+            </>
+        );
+    }
+   
 }
 
 export default HotelCards;

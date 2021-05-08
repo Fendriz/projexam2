@@ -5,13 +5,14 @@ import { useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { BASE_URL, headers, PATCH } from "../../../constants/api";
-import DeleteHotel from "./DeleteHotel";
+
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+
 import AdminHotelMenu from "../adminform/AdminHotelMenu";
 import AdminMenu from "../adminform/AdminMenu";
 import { NavLink } from "react-router-dom";
 import { SchemaHotel } from "../../validation/Schema";
+
 
 function UpdateHotel() {
   const {
@@ -23,7 +24,9 @@ function UpdateHotel() {
   });
 
   const [hotels, setHotels] = useState([]);
+ 
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const url = BASE_URL + "establishments";
 
@@ -31,39 +34,73 @@ function UpdateHotel() {
 
   useEffect(() => {
     fetch(url, options)
-      .then((response) => response.json())
-      .then((json) => {
-        console.log(json);
-        // handle error
-        if (json.error) {
-          setHotels([]);
-          setError(json.message);
-        } else {
-          setHotels(json);
-        }
-      })
-      .catch((error) => console.log(error));
-  }, []);
+        .then((response) => response.json())
+        .then((json) => {
+            console.log(json);
+            // handle error
+            if (json.error) {
+                setHotels([]);
+               
+                setError(json.message);
+            } else {
+                setHotels(json);
+             
+                setLoading(false);
+            }
+        })
+        .catch((error) => console.log(error));
+}, []);
+
+  console.log(hotels[0].name)
 
   async function onSubmit(data) {
     console.log("data", data);
   }
+ 
+  function changeSelect(data) {
+    console.log("data", data);
+    console.log(hotels[0]);
+    
+  }
 
+ 
   return (
     <div className="container_hotel">
       <AdminMenu active={1}></AdminMenu>
       <Form onSubmit={handleSubmit(onSubmit)} className="form_update">
         <AdminHotelMenu active={2}></AdminHotelMenu>
+     
+
+       
+        <Form.Group controlId="exampleForm.ControlSelect1">
+        
+          <Form.Control as="select" className="form_update-select" onChange={changeSelect}>
+          {hotels.map((hot) => {
+            return (
+              <option key={hot.id}>
+               
+                  {hot.name}
+                
+              </option>
+            );
+          })}
+           
+          </Form.Control>
+        </Form.Group>
+        
         <Form.Group>
-          <Form.Label>Hotel</Form.Label>
+          <Form.Label></Form.Label>
           <Form.Control
             label="hotel"
             name="hotel"
             placeholder="hotel"
-            {...register("hotel")}
+            {...register("hotelName")}
+            // defaultValue={}
+        
           />
           {errors.hotel && <p class="text-danger">{errors.hotel.message}</p>}
         </Form.Group>
+        
         <Form.Group>
           <Form.Label>Email</Form.Label>
           <Form.Control
@@ -138,6 +175,7 @@ function UpdateHotel() {
         <Button type="submit" class="button">
           Submit
         </Button>
+        
         <ul>
           {hotels.map((hotel) => {
             return (
@@ -149,9 +187,11 @@ function UpdateHotel() {
             );
           })}
         </ul>
+    
       </Form>
     </div>
   );
+        
 }
 
 export default UpdateHotel;
