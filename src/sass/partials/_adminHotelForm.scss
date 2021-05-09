@@ -50,7 +50,36 @@
 }
 .form_update .form-control {
     border: 1px solid $grey;
+    
 }
+.form_update .form-control::placeholder {
+   font-size: bold;
+   
+}
+/* for Opera,webkit chrome browsers */
+input::-webkit-input-placeholder { 
+    color: red;
+}
+/*firefox 19+ versions*/
+input::-moz-placeholder {
+    color: red;
+}
+/*IE  versions*/
+input::-ms-placeholder {
+    color: red;
+}
+/*Latest modern browsers */
+
+.form_update input::placeholder {
+    font-weight: bold;
+}
+.form_update input {
+    font-weight: bold;
+}
+.form_update textarea::placeholder {
+    font-weight: bold;
+}
+
 
 .form_update .form-label {
  
@@ -61,9 +90,22 @@
     color: white;
     
 }
+.form_update-select:focus{
+    background-color: $red;
+    color: white;
+    box-shadow: none;
+
+    
+
+    
+}
 
 .form_update-select .select_heading {
     margin-left: 5px;
    
    
+}
+
+.form_update .form-label{
+    font-style: oblique;
 }

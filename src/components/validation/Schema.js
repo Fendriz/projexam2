@@ -14,8 +14,9 @@ const SchemaHotel = yup.object().shape({
   guests: yup.number("Enter a valid number").required("No Guests provided"),
   url: yup.string().required("No url provided").url("Enter a valid url"),
   lat: yup.number("Enter a valid number").required("No Latitude provided"),
-  lnt: yup.number("Enter a valid number").required("No Longitude provided"),
+  lng: yup.number("Enter a valid number").required("No Longitude provided"),
   id: yup.number("Enter a valid number").required("No Id provided"),
+  mess: yup.string("Enter a valid string").required("No message provided"),
 });
 const SchemaContact = yup.object().shape({
   firstName: yup

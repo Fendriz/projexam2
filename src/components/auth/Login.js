@@ -20,7 +20,7 @@ function Login() {
   console.log(FaultyPwd);
   function onSubmit(data) {
     // if (login(credentials.username)) {
-    
+      console.log("fitte")
       login(data);
       if(!islogged){
        
@@ -72,9 +72,9 @@ function Login() {
           </Form.Group>
 
           <Button type="submit">Submit</Button>
-          <Form.Group>
+          {/* <Form.Group>
             <Link to="/register"> <span>Dont have an account?</span>Register</Link>
-          </Form.Group>
+          </Form.Group> */}
           
         </Form>
         

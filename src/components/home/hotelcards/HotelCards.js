@@ -69,7 +69,7 @@ function HotelCards() {
         console.log(filteredArray)
         setFilteredHotels(filteredArray)
     }
-    if(!loading) {
+ 
         return (
             <>
                 <div className="search">
@@ -102,7 +102,7 @@ function HotelCards() {
                 
             </>
         );
-    }
+   
    
 }
 
