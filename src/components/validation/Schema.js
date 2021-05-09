@@ -10,13 +10,16 @@ const SchemaHotel = yup.object().shape({
     .string()
     .required("No Email provided")
     .email("Enter a valid E-mail"),
-  price: yup.number("Enter a valid number").required("No Price provided"),
+  price: yup.number().required("No Price provided"),
   guests: yup.number("Enter a valid number").required("No Guests provided"),
   url: yup.string().required("No url provided").url("Enter a valid url"),
   lat: yup.number("Enter a valid number").required("No Latitude provided"),
   lng: yup.number("Enter a valid number").required("No Longitude provided"),
-  id: yup.number("Enter a valid number").required("No Id provided"),
-  mess: yup.string("Enter a valid string").required("No message provided"),
+  id: yup.string("Enter a valid ID").required("No Id provided"),
+  mess: yup
+    .string("Enter a valid string")
+    .required("No message provided")
+    .min(10, "Name is to short - should be minimun 10 characters"),
 });
 const SchemaContact = yup.object().shape({
   firstName: yup

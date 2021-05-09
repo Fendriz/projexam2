@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 function Footer() {
+  const { islogged } = useContext(AuthContext);
   return (
-    <div className="footer">
+    <div
+      className="footer"
+      style={
+        islogged ? { backgroundColor: "#00367A" } : { backgroundColor: "white" }
+      }
+    >
       <a href="https://witter.com" target="_blank">
         <div className="twitter">
           <i className="fab fa-twitter"></i>
