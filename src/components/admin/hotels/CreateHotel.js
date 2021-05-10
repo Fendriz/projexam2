@@ -9,25 +9,7 @@ import AdminHotelMenu from "../adminform/AdminHotelMenu";
 import AdminMenu from "../adminform/AdminMenu";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-
-const schema = yup.object().shape({
-  firstName: yup
-    .string()
-    .required("No name is provided")
-    .min(2, "Name is to short - should be minimun 2 characters"),
-  lastName: yup
-    .string()
-    .required("No name is provided")
-    .min(2, "Name is to short - should be minimun 2 characters"),
-  email: yup
-    .string()
-    .required("No Email provided")
-    .email("Enter a valid E-mail"),
-  mess: yup
-    .string()
-    .required("No Message provided")
-    .min(10, "Message is to short - should be minimun 10 characters"),
-});
+import { SchemaHotel } from "../../validation/Schema";
 
 function CreateHotel() {
   const {
@@ -35,7 +17,7 @@ function CreateHotel() {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(SchemaHotel),
   });
 
   const history = useHistory();
