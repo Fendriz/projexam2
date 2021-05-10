@@ -56,9 +56,13 @@
     border: 1px solid $grey;
     
 }
+.form_update::placeholder{
+    // font-weight: lighter;
+    // color: $grey;
+}
 
 .form_update input, .form_update textarea{
-    font-weight: bold;
+    // font-weight: bold;
 }
 
 .form_update .form-label {
