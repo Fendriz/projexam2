@@ -86,3 +86,24 @@
 .form_update .form-label{
     font-style: oblique;
 }
+.form_flex {
+    position: relative;
+
+}
+.form_flex-input{
+    width: 90%;
+}
+
+.form_update button {
+    margin-top: 30px;
+    padding: 5px 30px;
+    background-color: $red;
+    color: white;
+
+}
+.form_update .btn-primary:hover {
+    
+    background-color: $darkRed;
+   
+
+}

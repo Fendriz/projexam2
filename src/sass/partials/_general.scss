@@ -104,6 +104,47 @@ a{
 .activeLinkNormal {
 	color:$yellow!important;
 }
+.fa-trash-alt{
+    position: absolute;
+    // align-self:flex-end;
+    font-size: 20px;
+    padding: 15px;
+    background-color: $red;
+    border-radius: 5px;
+    color: white;
+    margin-left: 30px;
+    top:35px;
+    left: calc(100% - 80px);
+}
+.fa-trash-alt:hover{
+    cursor:pointer;
+}
+
+.react-confirm-alert-body{
+	text-align: center;
+	
+	background-color: $lightGrey;
+	max-width: 400px;
+	width: auto;
+
+}
+.react-confirm-alert-body h1{
+	font-size: 35px;
+}
+.react-confirm-alert-button-group{
+	display: block;
+	
+	
+}
+.react-confirm-alert-button-group button{
+	background-color: $red;
+	color:white;
+	font-size: 16px;
+	margin-right: 15px;
+	
+}
+
+
 @media (max-width: 1500px){
     .container_hotel {
 		max-width: 1000px;

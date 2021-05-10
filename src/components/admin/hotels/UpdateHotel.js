@@ -13,6 +13,8 @@ import AdminMenu from "../adminform/AdminMenu";
 import { NavLink } from "react-router-dom";
 import { SchemaHotel } from "../../validation/Schema";
 import Spinner from "react-bootstrap/Spinner";
+import DeleteHotel from "./DeleteHotel";
+
 
 function UpdateHotel() {
   const {
@@ -23,13 +25,14 @@ function UpdateHotel() {
   } = useForm({
     resolver: yupResolver(SchemaHotel),
   });
-
+  const history = useHistory();
   const [hotels, setHotels] = useState([]);
   const [hotel, setHotel] = useState({});
 
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [first, firstload] = useState(false);
+ 
 
   const url = BASE_URL + "establishments";
 
@@ -69,13 +72,23 @@ function UpdateHotel() {
     async function onSubmit(data) {
       console.log("testsdfsdf");
       console.log(data);
+      history.go(0)
+    }
+    async function onDelete(data) {
+      console.log(hotel.id);
+      console.log(hotel.name);
+ 
     }
 
     function changeSelect(data) {
       hotels.map((hotel) => {
         if (data.target.value === hotel.name) {
           setHotel(hotel);
-          setValue("hotel", hotel.name, {
+          setValue("name", hotel.name, {
+            shouldValidate: true,
+            shouldDirty: true,
+          });
+          setValue("address", hotel.address, {
             shouldValidate: true,
             shouldDirty: true,
           });
@@ -87,7 +100,7 @@ function UpdateHotel() {
             shouldValidate: true,
             shouldDirty: true,
           });
-          setValue("guests", hotel.maxGuests, {
+          setValue("maxGuests", hotel.maxGuests, {
             shouldValidate: true,
             shouldDirty: true,
           });
@@ -103,14 +116,15 @@ function UpdateHotel() {
             shouldValidate: true,
             shouldDirty: true,
           });
-          setValue("lng", hotel.lng, {
+          setValue("description", hotel.description, {
             shouldValidate: true,
             shouldDirty: true,
           });
-          setValue("id", hotel.id, {
+          setValue("selfCatering", hotel.selfCatering, {
             shouldValidate: true,
             shouldDirty: true,
           });
+        
         }
       });
     }
@@ -135,16 +149,30 @@ function UpdateHotel() {
               })}
             </Form.Control>
           </Form.Group>
+          <Form.Group className="form_flex">
+            <div className="form_flex-input">
+              <Form.Label>Hotel Name</Form.Label>
+              {console.log("test")}
+              <Form.Control
+                name="name"
+                {...register("name")}
+                defaultValue={hotel.name}
+              />
+              {errors.name && <p class="text-danger">{errors.name.message}</p>}
+            </div>
+           <DeleteHotel id={hotel.id} name={hotel.name}></DeleteHotel>  
+            
+            
+          </Form.Group>
           <Form.Group>
-            <Form.Label>Hotel Name</Form.Label>
+            <Form.Label>Hotel Address</Form.Label>
             {console.log("test")}
             <Form.Control
-              label="hotel"
-              name="hotel"
-              {...register("hotel")}
-              defaultValue={hotel.name}
+              name="address"
+              {...register("address")}
+              defaultValue={hotel.address}
             />
-            {errors.hotel && <p class="text-danger">{errors.hotel.message}</p>}
+            {errors.address && <p class="text-danger">{errors.address.message}</p>}
           </Form.Group>
           <Form.Group>
             <Form.Label>Email</Form.Label>
@@ -167,22 +195,22 @@ function UpdateHotel() {
           <Form.Group>
             <Form.Label>Max Guests</Form.Label>
             <Form.Control
-              name="guests"
+              name="maxGuests"
               defaultValue={hotel.maxGuests}
-              {...register("guests")}
+              {...register("maxGuests")}
             />
-            {errors.guests && (
-              <p class="text-danger">{errors.guests.message}</p>
+            {errors.maxGuests && (
+              <p class="text-danger">{errors.maxGuests.message}</p>
             )}
           </Form.Group>
           <Form.Group>
             <Form.Label>Image Url</Form.Label>
             <Form.Control
-              name="url"
+              name="image"
               defaultValue={hotel.image}
-              {...register("url")}
+              {...register("image")}
             />
-            {errors.url && <p class="text-danger">{errors.url.message}</p>}
+            {errors.image && <p class="text-danger">{errors.image.message}</p>}
           </Form.Group>
           <Form.Group>
             <Form.Label>Latitude</Form.Label>
@@ -203,24 +231,24 @@ function UpdateHotel() {
             {errors.lng && <p class="text-danger">{errors.lng.message}</p>}
           </Form.Group>
           <Form.Group>
-            <Form.Label>ID</Form.Label>
-            <Form.Control
-              name="id"
-              defaultValue={hotel.id}
-              {...register("id")}
-            />
-            {errors.id && <p class="text-danger">{errors.id.message}</p>}
-          </Form.Group>
-          <Form.Group>
             <Form.Label>Message</Form.Label>
             <Form.Control
               as="textarea"
               rows={6}
-              name="mess"
+              name="description"
               defaultValue={hotel.description}
-              {...register("mess")}
+              {...register("description")}
             />
-            {errors.mess && <p class="text-danger">{errors.mess.message}</p>}
+            {errors.description && <p class="text-danger">{errors.description.message}</p>}
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>SelfCatering</Form.Label>
+            <Form.Check
+              type="switch"
+              id="custom-switch"
+              name="selfCatering"
+              {...register("selfCatering")}
+            />
           </Form.Group>
 
           <Button type="submit" class="button">

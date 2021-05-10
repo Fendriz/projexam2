@@ -2,24 +2,29 @@ import React from "react";
 import * as yup from "yup";
 
 const SchemaHotel = yup.object().shape({
-  hotel: yup
+ 
+  name: yup
     .string()
     .required("No name is provided")
     .min(2, "Name is to short - should be minimun 2 characters"),
+  address: yup
+    .string()
+    .required("No Address is provided")
+    .min(2, "Address is to short - should be minimun 2 characters"),
   email: yup
     .string()
     .required("No Email provided")
     .email("Enter a valid E-mail"),
   price: yup.number().required("No Price provided"),
-  guests: yup.number("Enter a valid number").required("No Guests provided"),
-  url: yup.string().required("No url provided").url("Enter a valid url"),
+  maxGuests: yup.number("Enter a valid number").required("No Guests provided"),
+  image: yup.string().required("No url provided").url("Enter a valid url"),
   lat: yup.number("Enter a valid number").required("No Latitude provided"),
   lng: yup.number("Enter a valid number").required("No Longitude provided"),
-  id: yup.string("Enter a valid ID").required("No Id provided"),
-  mess: yup
+  description: yup
     .string("Enter a valid string")
     .required("No message provided")
     .min(10, "Name is to short - should be minimun 10 characters"),
+
 });
 const SchemaContact = yup.object().shape({
   firstName: yup

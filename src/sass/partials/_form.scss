@@ -35,3 +35,8 @@
     margin-bottom: 40px;
 
 }
+.custom-control-input:checked~.custom-control-label::before{
+    border-color: $red;
+    background-color: $red;
+
+}

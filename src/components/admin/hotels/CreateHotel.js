@@ -22,16 +22,24 @@ function CreateHotel() {
 
   const history = useHistory();
 
+  const newEstablishment = {
+    "name": "A hotel name",
+    "email": "someone@email.com",
+    "image": "path/to/image",
+    // ...other properties
+  };
+
   async function onSubmit(data) {
     console.log("data", data);
-
     const url = BASE_URL + "establishments";
 
     const options = { headers, method: "POST", body: JSON.stringify(data) };
 
     await fetch(url, options);
 
-    history.push("/admin/hotels/update");
+    history.push("/admin/hotels/Update");
+
+  
   }
 
   return (
@@ -43,12 +51,21 @@ function CreateHotel() {
           <Form.Label>Hotel Name</Form.Label>
           {console.log("test")}
           <Form.Control
-            label="hotel"
-            name="hotel"
-            {...register("hotel")}
+            name="name"
+            {...register("name")}
             placeholder="hotel Name"
           />
-          {errors.hotel && <p class="text-danger">{errors.hotel.message}</p>}
+          {errors.name && <p class="text-danger">{errors.name.message}</p>}
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Hotel Address</Form.Label>
+          {console.log("test")}
+          <Form.Control
+            name="address"
+            {...register("address")}
+            placeholder="Hotel Address"
+          />
+          {errors.address && <p class="text-danger">{errors.address.message}</p>}
         </Form.Group>
         <Form.Group>
           <Form.Label>Email</Form.Label>
@@ -71,16 +88,16 @@ function CreateHotel() {
         <Form.Group>
           <Form.Label>Max Guests</Form.Label>
           <Form.Control
-            name="guests"
+            name="maxGuests"
             placeholder="Max Guests"
-            {...register("guests")}
+            {...register("maxGuests")}
           />
-          {errors.guests && <p class="text-danger">{errors.guests.message}</p>}
+          {errors.maxGuests && <p class="text-danger">{errors.maxGuests.message}</p>}
         </Form.Group>
         <Form.Group>
           <Form.Label>Image Url</Form.Label>
-          <Form.Control name="url" placeholder="heisann" {...register("url")} />
-          {errors.url && <p class="text-danger">{errors.url.message}</p>}
+          <Form.Control name="image" placeholder="Image Url" {...register("image")} />
+          {errors.image && <p class="text-danger">{errors.image.message}</p>}
         </Form.Group>
         <Form.Group>
           <Form.Label>Latitude</Form.Label>
@@ -101,20 +118,24 @@ function CreateHotel() {
           {errors.lng && <p class="text-danger">{errors.lng.message}</p>}
         </Form.Group>
         <Form.Group>
-          <Form.Label>ID</Form.Label>
-          <Form.Control name="id" placeholder="hotelID" {...register("id")} />
-          {errors.id && <p class="text-danger">{errors.id.message}</p>}
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>Message</Form.Label>
+          <Form.Label>description</Form.Label>
           <Form.Control
             as="textarea"
             rows={6}
-            name="mess"
+            name="description"
             placeholder="Type your message min 10 characters"
-            {...register("mess")}
+            {...register("description")}
           />
-          {errors.mess && <p class="text-danger">{errors.mess.message}</p>}
+          {errors.description && <p class="text-danger">{errors.description.message}</p>}
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>SelfCatering</Form.Label>
+          <Form.Check
+            type="switch"
+            id="custom-switch"
+            name="selfCatering"
+            {...register("selfCatering")}
+          />
         </Form.Group>
 
         <Button type="submit" class="button">
