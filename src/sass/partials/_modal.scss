@@ -1,0 +1,42 @@
+.enquire-modal .modal-content{
+    background-color: $blue;
+    color:white;
+
+}
+.enquire-modal-header{
+    border-bottom: none;
+    padding: 1rem 1rem 0rem 1rem;
+}
+.enquire-modal-header .modal-title{
+    font-size: 35px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
+.enquire-modal-header .close{
+    margin:3px 3px 3px auto;
+    color: $blue;
+    background-color:$yellow;
+    opacity:1.0;
+padding:5px 9px;
+border-radius:4px;
+    
+}
+.enquire-modal-header .close:hover{
+    background-color: $darkYellow;
+   color:white; 
+   opacity: 1.0 !important;
+}
+.modal-body{
+    padding:0rem 1rem;
+}
+.modal-body p{
+    margin-bottom:1rem;
+}
+.modal-footer{
+    border-top: none;
+justify-content:flex-start;
+padding:1rem 1rem 1.5rem 1rem;
+}
+.modal-footer button{
+    width:100%;
+}
