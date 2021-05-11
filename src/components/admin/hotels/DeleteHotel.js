@@ -7,40 +7,38 @@ import PropTypes from "prop-types";
 
 import "react-confirm-alert/src/react-confirm-alert.css";
 
-function DeleteHotel({id, name}) {
-    const history = useHistory();
-    const title = `Confirm deleting ${name}`
-    function checkDelete() {
-        confirmAlert({
-            title: title,
-            buttons: [
-                {
-                    label: "yes",
-                    onClick: () => deleteHotel(),
-                },
-                {
-                    label: "no",
-                },
-            ],
-        });
-    }
+function DeleteHotel({ id, name }) {
+  const history = useHistory();
+  const title = `Confirm deleting ${name}`;
+  function checkDelete() {
+    confirmAlert({
+      title: title,
+      buttons: [
+        {
+          label: "yes",
+          onClick: () => deleteHotel(),
+        },
+        {
+          label: "no",
+        },
+      ],
+    });
+  }
 
-    async function deleteHotel() {
-        // const url = BASE_URL + "establishments/" + id;
-        // const options = { headers, method: DELETE };
-        // await fetch(url, options);
-        // history.push("/admin/hotels/update");
-        // history.go(0)
-        console.log(id)
-    }
+  async function deleteHotel() {
+    const url = BASE_URL + "establishments/" + id;
+    const options = { headers, method: DELETE };
+    await fetch(url, options);
+    history.push("/admin/hotels/update");
+    history.go(0);
+    console.log(id);
+  }
 
-    return (
-        <i class="fas fa-trash-alt" onClick={checkDelete}></i>
-    );
+  return <i class="fas fa-trash-alt" onClick={checkDelete}></i>;
 }
 DeleteHotel.propTypes = {
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default DeleteHotel;

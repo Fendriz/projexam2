@@ -5,34 +5,25 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { AuthContext } from "../../context/AuthContext";
 
-
-
-
-
 function Login() {
   const { login, islogged } = useContext(AuthContext);
   const { register, handleSubmit } = useForm();
   const history = useHistory();
-  const [ FaultyPwd, setFaultyPwd ] = useState(false);
+  const [FaultyPwd, setFaultyPwd] = useState(false);
 
-
-  
   console.log(FaultyPwd);
   function onSubmit(data) {
     // if (login(credentials.username)) {
-      console.log("fitte")
-      login(data);
-      if(!islogged){
-       
-        setFaultyPwd(true);
-      }
-        
-  if(islogged){
-    history.push("/admin/hotels/create")
-  }
+    console.log("fitte");
+    login(data);
+    if (!islogged) {
+      setFaultyPwd(true);
+    }
 
-    
-   
+    if (islogged) {
+      history.push("/admin/hotels/create");
+    }
+
     // if (login(data)) {
     // history.push("/admin");
     // console.log("finally");
@@ -50,11 +41,11 @@ function Login() {
               name="username"
               placeholder="Enter your username"
               {...register("username")}
-              onChange={()=>setFaultyPwd(false)}
+              onChange={() => setFaultyPwd(false)}
             />
-              {FaultyPwd && (
-                    <p class='text-danger'>UserName or Password is wrong</p>
-                )}
+            {FaultyPwd && (
+              <p class="text-danger">UserName or Password is wrong</p>
+            )}
           </Form.Group>
 
           <Form.Group>
@@ -64,20 +55,20 @@ function Login() {
               name="password"
               placeholder="Enter your password"
               {...register("password")}
-              onChange={()=>setFaultyPwd(false)}
+              onChange={() => setFaultyPwd(false)}
             />
-              {FaultyPwd && (
-                    <p class='text-danger'>UserName or Password is wrong</p>
-                )}
+            {FaultyPwd && (
+              <p class="text-danger">UserName or Password is wrong</p>
+            )}
           </Form.Group>
 
           <Button type="submit">Submit</Button>
-          {/* <Form.Group>
-            <Link to="/register"> <span>Dont have an account?</span>Register</Link>
-          </Form.Group> */}
-          
+          <Form.Group>
+            <Link to="/register">
+              <span>Dont have an account?</span>Register
+            </Link>
+          </Form.Group>
         </Form>
-        
       </div>
     </div>
   );
