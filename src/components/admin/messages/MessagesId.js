@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import PropTypes from "prop-types";
 import Button from "react-bootstrap/Button";
 
-function MessagesID({ id, firstName, lastName, email, message }) {
+function MessagesID({ id, name,email, message }) {
   function changeSelect() {
     console.log("changeselct");
   }
@@ -12,12 +12,8 @@ function MessagesID({ id, firstName, lastName, email, message }) {
     <>
       <Form.Group key={id}>
         <Form.Group>
-          <Form.Label>First Name</Form.Label>
-          <Form.Control value={firstName} readOnly name="firstName" />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>Last Name</Form.Label>
-          <Form.Control value={lastName} readOnly name="lastName" />
+          <Form.Label>Name</Form.Label>
+          <Form.Control value={name} readOnly name="name" />
         </Form.Group>
         <Form.Group>
           <Form.Label>email</Form.Label>
@@ -43,8 +39,7 @@ function MessagesID({ id, firstName, lastName, email, message }) {
 }
 MessagesID.propTypes = {
   id: PropTypes.string.isRequired,
-  firstName: PropTypes.string.isRequired,
-  lastName: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
 };

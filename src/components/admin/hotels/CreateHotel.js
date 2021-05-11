@@ -37,7 +37,7 @@ function CreateHotel() {
 
     await fetch(url, options);
 
-    history.push("/admin/hotels/Update");
+    history.push("/admin/hotels/update");
   }
 
   return (

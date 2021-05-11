@@ -6,17 +6,23 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import EnquireModal from "../../modals/enquireModal"
 
 
 
-
-function GameDetails() {
+function HotelDetails() {
 	const [detail, setDetail] = useState(null);
 	const [loading, setLoading] = useState(true);
+
+
+   
+ 
+
     const [error, setError] = useState(null);
 
 	let { id } = useParams();
-    console.log(id)
+  
     let catering;
 	const url = BASE_URL + "establishments/" + id;
 
@@ -46,6 +52,7 @@ function GameDetails() {
     if(!loading) {
         console.log(detail)
     }
+
 
     
     let maploc = `https://www.google.com/maps/embed/v1/place?q=${detail.lat},${detail.lng}&key=AIzaSyDDs8r6GYDiEfFWP8EakjkMoCqU0-mI7Ho`
@@ -97,9 +104,10 @@ function GameDetails() {
                             <div><p>MAX GUESTS: </p></div>
                             <div className="gen">{detail.maxGuests}</div>
                         </div>
-                        <div className="Button">
-                            Enquire
-                        </div>
+                
+                 
+                    <EnquireModal></EnquireModal>
+             
                    
                 </div>
             </div>
@@ -108,4 +116,4 @@ function GameDetails() {
 	);
 }
 
-export default GameDetails;
+export default HotelDetails;

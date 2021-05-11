@@ -4,6 +4,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { SchemaContact } from "../validation/Schema";
+import { BASE_URL, headers } from "../../constants/api";
+import { useHistory } from "react-router-dom";
 
 function ContactForm() {
   const {
@@ -13,9 +15,26 @@ function ContactForm() {
   } = useForm({
     resolver: yupResolver(SchemaContact),
   });
+  const history = useHistory();
+  const url = BASE_URL + "contacts";
 
-  function onSubmit(data) {
-    console.log("data", data);
+  async function onSubmit(data) {
+    const name = data.firstName + " " + data.lastName;
+
+    const newData = {
+      name: name,
+      email: data.email,
+      message: data.mess
+    }
+  
+    const options = { headers, method: "POST", body: JSON.stringify(newData) };
+    console.log("data", newData);
+
+    await fetch(url, options);
+
+    history.push("/admin/messages");
+
+  
   }
 
   return (
