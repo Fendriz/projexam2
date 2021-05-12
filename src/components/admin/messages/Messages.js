@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import AdminMenu from "../adminform/AdminMenu";
 import Form from "react-bootstrap/Form";
 import MessagesId from "./MessagesId";
-import { BASE_URL, headers, PATCH } from "../../../constants/api";
+import { BASE_URL, headers} from "../../../constants/api";
 
 function Messages() {
 
@@ -10,7 +10,7 @@ function Messages() {
 
   const options = { headers };
   const [messages, setMessages] = useState([]);
-  const opt = [
+  const sort = [
     { id: 1, option: "FirstName" },
     { id: 2, option: "LastName" },
     { id: 3, option: "Email" },
@@ -53,7 +53,7 @@ function Messages() {
               className="form_update-select"
               onChange={changeSelect}
             >
-              {opt.map((e) => {
+              {sort.map((e) => {
                 return <option key={e.id}>{e.option}</option>;
               })}
             </Form.Control>

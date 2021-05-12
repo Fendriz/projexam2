@@ -1,20 +1,34 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { SchemaEnquire} from "../validation/Schema"
+import { BASE_URL, headers } from "../../constants/api";
+import Moment from 'moment';
 
-function EnquireModal() {
+function EnquireModal(props) {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  const [FaultyPwd, setFaultyPwd] = useState(false);
-  const { register, handleSubmit } = useForm();
-
-  function onSubmit(data) {}
+  const url = BASE_URL + "enquiries";
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(SchemaEnquire),
+  });
+  async function onSubmit(data) {
+    data.checkIn = Moment(data.checkIn).format("MMM DD YYYY");
+    data.checkOut = Moment(data.checkOut).format("MMM DD YYYY");
+    data.establishmentId = props.id
+    const options = { headers, method: "POST", body: JSON.stringify(data) };
+    await fetch(url, options);
+    handleClose();
+  }
   return (
     <>
       <div className="Button" onClick={handleShow}>
@@ -41,8 +55,8 @@ function EnquireModal() {
                   placeholder="Enter your name"
                   {...register("name")}
                 />
-                {FaultyPwd && (
-                  <p class="text-danger">UserName or Password is wrong</p>
+                {errors.name && (
+                  <p class="text-danger">{errors.name.message}</p>
                 )}
               </Form.Group>
 
@@ -52,10 +66,10 @@ function EnquireModal() {
                   type="email"
                   name="email"
                   placeholder="Enter your email"
-                  onChange={() => setFaultyPwd(false)}
+                  {...register("email")}
                 />
-                {FaultyPwd && (
-                  <p class="text-danger">UserName or Password is wrong</p>
+                {errors.email && (
+                  <p class="text-danger">{errors.email.message}</p>
                 )}
               </Form.Group>
               <Form.Group>
@@ -63,33 +77,33 @@ function EnquireModal() {
                   <Form.Label>Check Inn</Form.Label>
                   <Form.Control
                     type="date"
-                    name="checkinn"
+                    name="checkIn"
                     placeholder="dd/mm/yyyy"
-                    onChange={() => setFaultyPwd(false)}
+                    {...register("checkIn")}
                   />
-                  {FaultyPwd && (
-                    <p class="text-danger">UserName or Password is wrong</p>
+                  {errors.checkIn && (
+                    <p class="text-danger">{errors.checkIn.message}</p>
                   )}
                 </Form.Group>
                 <Form.Group>
                   <Form.Label>Check Out</Form.Label>
                   <Form.Control
                     type="date"
-                    name="checkout"
+                    name="checkOut"
                     placeholder="dd/mm/yyyy"
-                    onChange={() => setFaultyPwd(false)}
+                    {...register("checkOut")}
                   />
-                  {FaultyPwd && (
-                    <p class="text-danger">UserName or Password is wrong</p>
+                  {errors.checkOut && (
+                    <p class="text-danger">{errors.checkOut.message}</p>
                   )}
                 </Form.Group>
+                <Button type="submit" variant="primary" >Submit</Button>
               </Form.Group>
+              
             </Form>
           </div>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="primary">Submit</Button>
-        </Modal.Footer>
+       
       </Modal>
     </>
   );

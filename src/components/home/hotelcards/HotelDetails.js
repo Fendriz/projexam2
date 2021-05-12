@@ -106,7 +106,7 @@ function HotelDetails() {
                         </div>
                 
                  
-                    <EnquireModal></EnquireModal>
+                    <EnquireModal id={id}></EnquireModal>
              
                    
                 </div>

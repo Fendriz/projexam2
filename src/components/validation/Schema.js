@@ -44,6 +44,23 @@ const SchemaContact = yup.object().shape({
     .required("No Message provided")
     .min(10, "Message is to short - should be minimun 10 characters"),
 });
+const SchemaEnquire = yup.object().shape({
+  name: yup
+    .string()
+    .required("No name is provided")
+    .min(2, "Name is to short - should be minimun 2 characters"),
+  email: yup
+    .string()
+    .required("No Email provided")
+    .email("Enter a valid E-mail"),
+  checkIn: yup
+    .string()
+    .required("No Date provided"),
+  checkOut: yup
+    .string()
+    .required("No Date provided"),
+   
+});
 const SchemaRegister = yup.object().shape({
   username: yup
     .string()
@@ -54,4 +71,4 @@ const SchemaRegister = yup.object().shape({
     .required("No password is provided")
     .min(8, "Password is to short - should be minimun 8 characters"),
 });
-export { SchemaContact, SchemaRegister, SchemaHotel };
+export { SchemaContact, SchemaRegister, SchemaHotel, SchemaEnquire  };

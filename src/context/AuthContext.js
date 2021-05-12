@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react";
+import { BASE_URL, headers } from "../constants/api";
 
 const AuthContext = createContext();
 
@@ -9,9 +10,9 @@ const AuthContextProvider = ({ children }) => {
   const [islogged, setlogged] = useState(false);
   // console.log(existingUser);
   function registerUser({ username, password }) {
-    localStorage.setItem(username, password);
+  localStorage.setItem(username, password);
 
-    setUsers(Object.entries(localStorage));
+  setUsers(Object.entries(localStorage));
     // console.log(users);
   }
   function login({ username, password }) {
@@ -38,10 +39,30 @@ const AuthContextProvider = ({ children }) => {
 
     localStorage.removeItem(username);
   }
+  async function getHotel({ id }) {
+   
+    const hotelName="";
+    const url = BASE_URL + "establishments";
+    const options = { headers };
+    const response = await fetch(url, options)
+    if (!response.ok) {
+      const message = `An error has occured: ${response.status}`;
+      throw new Error(message);
+    }
+    if (response.ok) {
+      const json = await response.json();
+      json.map(hotel => {
+        if (hotel.id === id){
+          hotelName = hotel.name
+        }
+      })
+    }
+    return hotelName
+  }
 
   return (
     <AuthContext.Provider
-      value={{ users, islogged, registerUser, logout, login, removeUser }}
+      value={{ users, islogged, registerUser, logout, login, removeUser, getHotel }}
     >
       {children}
     </AuthContext.Provider>

@@ -1,6 +1,8 @@
 .enquire-modal .modal-content{
     background-color: $blue;
     color:white;
+    padding: 10px;
+    border-radius: 15px;
 
 }
 .enquire-modal-header{
@@ -32,11 +34,9 @@ border-radius:4px;
 .modal-body p{
     margin-bottom:1rem;
 }
-.modal-footer{
-    border-top: none;
-justify-content:flex-start;
-padding:1rem 1rem 1.5rem 1rem;
-}
-.modal-footer button{
+
+.modal-body button{
     width:100%;
+    margin-top: 35px;
+    margin-bottom: 10px;
 }
