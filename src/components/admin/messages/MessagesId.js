@@ -10,7 +10,7 @@ function MessagesID({ id, name,email, message }) {
   }
   return (
     <>
-      <Form.Group key={id}>
+      <Form.Group className="formGroup-readonly">
         <Form.Group>
           <Form.Label>Name</Form.Label>
           <Form.Control value={name} readOnly name="name" />

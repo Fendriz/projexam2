@@ -1,20 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+
 import AdminMenu from "../adminform/AdminMenu";
 import Form from "react-bootstrap/Form";
 import EnquiriesId from "./EnquiriesId";
-import { BASE_URL, headers, PATCH } from "../../../constants/api";
+import { BASE_URL, headers } from "../../../constants/api";
+import { AuthContext } from "../../../context/AuthContext";
 
 function Enquiries() {
 
     const url = BASE_URL + "enquiries";
+    const { getHotel,hotels } = useContext(AuthContext);
 
     const options = { headers };
     const [enquiries, setEnquiries] = useState([]);
+   
     const sort = [
         { id: 1, option: "Name" },
         { id: 2, option: "Email" },
         { id: 3, option: "Date" },
-    ];
+    ]; 
 
     useEffect(() => {
         fetch(url, options)
@@ -26,16 +30,14 @@ function Enquiries() {
                 } else {
                     console.log(json)
                     setEnquiries(json);
-
-
+                    getHotel()
                 }
             })
-            // .then(setHotel(hotels[0]))
             .catch((error) => console.log(error));
     }, []);
 
 
-    console.log(enquiries)
+ 
     function changeSelect(data) {
         console.log("data", data)
         // const url = BASE_URL + "contacts"
@@ -45,28 +47,36 @@ function Enquiries() {
     return (
         <>
             <div className="container_hotel">
-                <AdminMenu active={3}></AdminMenu>
-                <Form className="enquire-form">
-                    <Form.Group controlId="exampleForm.ControlSelect1">
-                        <Form.Control
-                            as="select"
-                            className="form_update-select"
-                            onChange={changeSelect}
-                        >
-                            {sort.map((e) => {
-                                return <option key={e.id}>{e.option}</option>;
-                            })}
-                        </Form.Control>
+                <AdminMenu active={2}></AdminMenu>
+                <Form className="form_update">
+                   
+                        <Form.Group controlId="exampleForm.ControlSelect1">
+                            <Form.Control
+                                as="select"
+                                className="form_update-select"
+                                onChange={changeSelect}
+                            >
+                                {sort.map((e) => {
+                                    return <option key={e.id}>{e.option}</option>;
+                                })}
+                            </Form.Control>
+                        </Form.Group>
+                    <Form.Group className="form_readonly">
+                        {enquiries.map((enc) => {
+                            return <EnquiriesId
+                                key={enc.id}
+                                id={enc.id}
+                                name={enc.name}
+                                email={enc.email}
+                                checkIn={enc.checkIn}
+                                checkOut={enc.checkOut}
+                                hotelid={enc.establishmentId}
+                                hotels={hotels}
+                            ></EnquiriesId>
+                        })}
+
                     </Form.Group>
-                    {enquiries.map((enc) => {
-                        return <EnquiriesId
-                            id={enc.id}
-                            name={enc.name}
-                            email={enc.email}
-                            checkIn={enc.checkIn}
-                            checkOut={enc.checkOut}
-                        ></EnquiriesId>
-                    })}
+                   
                 </Form>
             </div>
         </>

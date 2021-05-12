@@ -56,8 +56,9 @@ a{
 }
 
 .container_hotel {
-	max-width: 1400px;
+	max-width: 1350px;
 	margin: 0 auto;
+	
 	
 }
 .flex-container {
@@ -147,20 +148,25 @@ a{
 
 @media (max-width: 1500px){
     .container_hotel {
-		max-width: 1000px;
-		
-		
+		max-width: 1030px;
 	}
 
 }
-@media (max-width: 1150px){
-    .container_hotel {
-		max-width: 700px;
-	}
-}
 
-@media (max-width: 1000px){
-    .container_hotel {
-		max-width: 1000px;
+@media (max-width: 1060px){
+   .container_hotel {
+		padding: 0 20px;
 	}
+
 }
+// @media (max-width: 1150px){
+//     .container_hotel {
+// 		max-width: 990px;
+// 	}
+// }
+
+// @media (max-width: 1000px){
+//     .container_hotel {
+// 		max-width: 1000px;
+// 	}
+// }

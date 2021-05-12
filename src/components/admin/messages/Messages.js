@@ -57,16 +57,19 @@ function Messages() {
                 return <option key={e.id}>{e.option}</option>;
               })}
             </Form.Control>
+
           </Form.Group>
-          {messages.map((mes) => {
-            return <MessagesId
-              id={mes.id}
-              name={mes.name}
-              email={mes.email}
-              message={mes.message}
-            ></MessagesId>
-          })}
-       
+          <Form.Group className="form_readonly">
+            {messages.map((mes) => {
+              return <MessagesId
+                key={mes.id}
+                id={mes.id}
+                name={mes.name}
+                email={mes.email}
+                message={mes.message}
+              ></MessagesId>
+            })}
+          </Form.Group>
         </Form>
       </div>
     </>

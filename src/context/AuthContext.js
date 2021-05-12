@@ -8,6 +8,7 @@ const AuthContextProvider = ({ children }) => {
 
   const [users, setUsers] = useState(Object.entries(localStorage));
   const [islogged, setlogged] = useState(false);
+  const [hotels, setHotels] = useState([]);
   // console.log(existingUser);
   function registerUser({ username, password }) {
   localStorage.setItem(username, password);
@@ -39,30 +40,30 @@ const AuthContextProvider = ({ children }) => {
 
     localStorage.removeItem(username);
   }
-  async function getHotel({ id }) {
+  function getHotel() {
    
-    const hotelName="";
     const url = BASE_URL + "establishments";
     const options = { headers };
-    const response = await fetch(url, options)
-    if (!response.ok) {
-      const message = `An error has occured: ${response.status}`;
-      throw new Error(message);
-    }
-    if (response.ok) {
-      const json = await response.json();
-      json.map(hotel => {
-        if (hotel.id === id){
-          hotelName = hotel.name
+    fetch(url, options)
+      .then((response) => response.json())
+      .then((json) => {
+        // handle error
+        if (json.error) {
+          setHotels([]);
+        } else {
+          setHotels(json);
+         
         }
       })
-    }
-    return hotelName
+      // .then(setHotel(hotels[0]))
+      .catch((error) => console.log(error));
+   
+    return hotels
   }
 
   return (
     <AuthContext.Provider
-      value={{ users, islogged, registerUser, logout, login, removeUser, getHotel }}
+      value={{ users, islogged, hotels, registerUser, logout, login, removeUser, getHotel }}
     >
       {children}
     </AuthContext.Provider>

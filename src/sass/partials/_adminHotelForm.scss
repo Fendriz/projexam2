@@ -107,3 +107,36 @@
    
 
 }
+.formGroup-readonly{
+    max-width: 300px;
+    padding: 10px;
+    border: 1px solid $grey;
+    border-radius: 6px;
+    margin-right: 20px;
+    background-color: white;
+
+}
+.formGroup-readonly div{
+    display: flex;
+
+}
+.formGroup-readonly label{
+    margin-top: 10px;
+    width: 150px;
+    align-self: center;
+   
+}
+.form_readonly{
+    display: flex;
+   
+    flex-wrap: wrap ;
+
+}
+
+@media (max-width: 1060px){
+   .form_readonly{
+        justify-content: center;
+
+    }
+
+}
