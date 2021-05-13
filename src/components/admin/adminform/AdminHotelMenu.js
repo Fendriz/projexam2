@@ -7,7 +7,7 @@ function AdminHotelMenu({ active }) {
     <div className="adminMenu adminHotelMenu">
       <div
         className="createHotel"
-        style={active === 1 ? { backgroundColor: "#EE4B4D" } : {}}
+        style={active === 1 ? { backgroundColor: "#B6B7B7" } : {}}
       >
         <NavLink
           to="/admin/hotels/create"
@@ -18,7 +18,7 @@ function AdminHotelMenu({ active }) {
       </div>
       <div
         className="updateHotels"
-        style={active === 2 ? { backgroundColor: "#EE4B4D" } : {}}
+        style={active === 2 ? { backgroundColor: "#B6B7B7" } : {}}
       >
         <NavLink
           to="/admin/hotels/update/"

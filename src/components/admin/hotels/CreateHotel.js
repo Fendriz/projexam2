@@ -103,17 +103,6 @@ function CreateHotel() {
               )}
             </Form.Group>
             <Form.Group>
-              <Form.Label>Image Url</Form.Label>
-              <Form.Control
-                name="image"
-                placeholder="Image Url"
-                {...register("image")}
-              />
-              {errors.image && (
-                <p class="text-danger">{errors.image.message}</p>
-              )}
-            </Form.Group>
-            <Form.Group>
               <Form.Label>Latitude</Form.Label>
               <Form.Control
                 name="lat"
@@ -134,10 +123,21 @@ function CreateHotel() {
           </Form.Group>
           <Form.Group className="form-group-right">
             <Form.Group>
+              <Form.Label>Image Url</Form.Label>
+              <Form.Control
+                name="image"
+                placeholder="Image Url"
+                {...register("image")}
+              />
+              {errors.image && (
+                <p class="text-danger">{errors.image.message}</p>
+              )}
+            </Form.Group>
+            <Form.Group>
               <Form.Label>description</Form.Label>
               <Form.Control
                 as="textarea"
-                rows={6}
+                rows={10}
                 name="description"
                 placeholder="Type your message min 10 characters"
                 {...register("description")}

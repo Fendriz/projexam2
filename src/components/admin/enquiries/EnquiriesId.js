@@ -6,11 +6,7 @@ import Button from "react-bootstrap/Button";
 import Moment from 'moment';
 
 function EnquiriesId({ id, name, email, checkIn, checkOut, hotels, hotelid }) {
-
-
-   
     const [hotel, setHotel] = useState("");
-
     useEffect(() => {
         hotels.map(hotel => {
             if (hotel.id === hotelid) {
@@ -19,12 +15,8 @@ function EnquiriesId({ id, name, email, checkIn, checkOut, hotels, hotelid }) {
         })
         
     }, []);
-
-   
     console.log(hotel)
-
     function changeSelect() {
-     
     }
     return (
         <>
@@ -41,27 +33,24 @@ function EnquiriesId({ id, name, email, checkIn, checkOut, hotels, hotelid }) {
                     <Form.Label>Email</Form.Label>
                     <Form.Control value={email} readOnly name="email" />
                 </Form.Group>
-              
-                    <Form.Group>
-                        <Form.Label>Check Inn</Form.Label>
-                        <Form.Control
-                           
-                            name="checkIn"
-                            value={Moment(checkIn).format("MMM DD YYYY")}
-                            readOnly
-                        />
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Label>Check Out</Form.Label>
-                        <Form.Control
-                         
-                            name="checkOut"
-                            value={Moment(checkOut).format("MMM DD YYYY")}
-                            readOnly
-                        />
-                    </Form.Group>
-           
-             
+                <Form.Group>
+                    <Form.Label>Check Inn</Form.Label>
+                    <Form.Control
+                       
+                        name="checkIn"
+                        value={Moment(checkIn).format("MMM DD YYYY")}
+                        readOnly
+                    />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>Check Out</Form.Label>
+                    <Form.Control
+                     
+                        name="checkOut"
+                        value={Moment(checkOut).format("MMM DD YYYY")}
+                        readOnly
+                    />
+                </Form.Group>
             </Form.Group>
         </>
     );

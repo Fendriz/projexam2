@@ -1,12 +1,11 @@
 
 .adminMenu{
-    padding-top: 70px;
+    padding-top: 20px;
     display: flex;
    
 }
-
 .adminMenu div{
-    padding: 10px 20px;
+    padding: 7px 20px;
     background-color: $lightGrey;
     border-bottom: 1px solid $grey;
     border-top: 1px solid $grey;
@@ -15,7 +14,7 @@
 }
 .adminMenu div:hover{
     
-    background-color: $red;
+  background-color: $grey;
 
 }
 .adminMenu div:hover a{
@@ -24,7 +23,7 @@
 }
 
 .adminMenu a{
-    color:$dark;
+  color:$dark;
 }
 
 .adminMenu div:first-child {
@@ -40,21 +39,43 @@
     border-right: 1px solid $grey;
 }
 .adminHotelMenu{
-    padding-top: 20px;
+  padding-top: 10px;
 }
 
 .form_update{
+    position:relative;
     background-color: $lightGrey;
-    margin-top:60px;
+    margin-top:20px;
     margin-bottom: 50px;
-    padding: 20px 30px;
+    padding: 10px 15px;
     border-radius: 10px;
     border: 1px solid $grey;
     
 }
+.form_update .form-label{
+  margin-bottom:2px;
+}
 .form_update .form-control {
-    border: 1px solid $grey;
+  border: 1px solid $grey;
     
+}
+.form_update .form-group {
+  margin-bottom:5px;
+}
+.form_update .form-group-flex {
+  margin-top:20px;
+  display: grid;
+    grid-template-columns: auto auto; 
+      grid-template-rows: auto;
+}
+.form_update .form-group-right {
+  margin-left:10px;
+}
+.form_update .form-group-left {
+  margin-right:10px;
+}
+.form-margintop{
+  margin-top:70px;
 }
 .form_update::placeholder{
     // font-weight: lighter;
@@ -70,13 +91,13 @@
     color: $dark;
 }
 .form_update-select{
-    background-color: $red;
+    background-color: $grey;
     color: white;
     margin-top: 30px;
     
 }
 .form_update-select:focus{
-    background-color: $red;
+    background-color: $grey;
     color: white;
     box-shadow: none;
 }

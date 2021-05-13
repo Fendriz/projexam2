@@ -6,16 +6,16 @@ import { NavLink } from "react-router-dom";
 function AdminMenu({active}) {
 	return (
         <div className="adminMenu">
-            <div className="adminHotel" style={active===1?{backgroundColor: "#EE4B4D"}:{}}>
+            <div className="adminHotel" style={active===1?{backgroundColor: "#B6B7B7"}:{}}>
                 <NavLink to="/admin/hotels/create" style={active===1?{color: "white"}:{}}>Hotel</NavLink>
             </div>
-            <div className="adminEnquiries" style={active===2?{backgroundColor: "#EE4B4D"}:{}}>
+            <div className="adminEnquiries" style={active===2?{backgroundColor: "#B6B7B7"}:{}}>
                 <NavLink to="/admin/enquiries" style={active===2?{color: "white"}:{}}>Enquiries</NavLink>
             </div>
-            <div className="adminUserMessages" style={active===3?{backgroundColor: "#EE4B4D"}:{}}>
+            <div className="adminUserMessages" style={active===3?{backgroundColor: "#B6B7B7"}:{}}>
                 <NavLink to="/admin/messages" style={active===3?{color: "white"}:{}}>User Messages</NavLink>
             </div>
-            <div className="adminAccounts" style={active===4?{backgroundColor: "#EE4B4D"}:{}}>
+            <div className="adminAccounts" style={active===4?{backgroundColor: "#B6B7B7"}:{}}>
                 <NavLink to="/admin/accounts"  style={active===4?{color: "white"}:{}}>Accounts</NavLink>
             </div>
         </div>

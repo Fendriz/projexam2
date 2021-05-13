@@ -148,22 +148,20 @@ function UpdateHotel() {
               })}
             </Form.Control>
           </Form.Group>
+          <DeleteHotel id={hotel.id} name={hotel.name}></DeleteHotel>
           <Form.Group className="form-group-flex">
-            <Form.Group className="form-group-right">
-              <Form.Group className="form_flex">
-                <div className="form_flex-input">
-                  <Form.Label>Hotel Name</Form.Label>
-                  {console.log("test")}
-                  <Form.Control
-                    name="name"
-                    {...register("name")}
-                    defaultValue={hotel.name}
-                  />
-                  {errors.name && (
-                    <p class="text-danger">{errors.name.message}</p>
-                  )}
-                </div>
-                <DeleteHotel id={hotel.id} name={hotel.name}></DeleteHotel>
+            <Form.Group className="form-group-left ">
+              <Form.Group>
+                <Form.Label>Hotel Name</Form.Label>
+                {console.log("test")}
+                <Form.Control
+                  name="name"
+                  {...register("name")}
+                  defaultValue={hotel.name}
+                />
+                {errors.name && (
+                  <p class="text-danger">{errors.name.message}</p>
+                )}
               </Form.Group>
               <Form.Group>
                 <Form.Label>Hotel Address</Form.Label>
@@ -211,17 +209,6 @@ function UpdateHotel() {
                 )}
               </Form.Group>
               <Form.Group>
-                <Form.Label>Image Url</Form.Label>
-                <Form.Control
-                  name="image"
-                  defaultValue={hotel.image}
-                  {...register("image")}
-                />
-                {errors.image && (
-                  <p class="text-danger">{errors.image.message}</p>
-                )}
-              </Form.Group>
-              <Form.Group>
                 <Form.Label>Latitude</Form.Label>
                 <Form.Control
                   name="lat"
@@ -240,12 +227,23 @@ function UpdateHotel() {
                 {errors.lng && <p class="text-danger">{errors.lng.message}</p>}
               </Form.Group>
             </Form.Group>
-            <Form.Group className="form-group-right">
+            <Form.Group className="form-group-right form-margintop">
+              <Form.Group>
+                <Form.Label>Image Url</Form.Label>
+                <Form.Control
+                  name="image"
+                  defaultValue={hotel.image}
+                  {...register("image")}
+                />
+                {errors.image && (
+                  <p class="text-danger">{errors.image.message}</p>
+                )}
+              </Form.Group>
               <Form.Group>
                 <Form.Label>Message</Form.Label>
                 <Form.Control
                   as="textarea"
-                  rows={6}
+                  rows={7}
                   name="description"
                   defaultValue={hotel.description}
                   {...register("description")}

@@ -12,15 +12,12 @@ function MessagesID({ id, name,email, message }) {
     <>
       <Form.Group className="formGroup-readonly">
         <Form.Group>
-          <Form.Label>Name</Form.Label>
           <Form.Control value={name} readOnly name="name" />
         </Form.Group>
         <Form.Group>
-          <Form.Label>email</Form.Label>
           <Form.Control value={email} readOnly name="email" />
         </Form.Group>
         <Form.Group>
-          <Form.Label>Message</Form.Label>
           <Form.Control
             as="textarea"
             readOnly
