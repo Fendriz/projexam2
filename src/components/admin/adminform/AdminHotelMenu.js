@@ -5,28 +5,12 @@ import { NavLink } from "react-router-dom";
 function AdminHotelMenu({ active }) {
   return (
     <div className="adminMenu adminHotelMenu">
-      <div
-        className="createHotel"
-        style={active === 1 ? { backgroundColor: "#B6B7B7" } : {}}
-      >
-        <NavLink
-          to="/admin/hotels/create"
-          style={active === 1 ? { color: "white" } : {}}
-        >
-          Create
-        </NavLink>
-      </div>
-      <div
-        className="updateHotels"
-        style={active === 2 ? { backgroundColor: "#B6B7B7" } : {}}
-      >
-        <NavLink
-          to="/admin/hotels/update/"
-          style={active === 2 ? { color: "white" } : {}}
-        >
-          Update
-        </NavLink>
-      </div>
+      <NavLink to="/admin/hotels/create" className="createHotel" style={active === 1 ? { backgroundColor: "#EE4B4D" } : {}} >
+        <p style={active === 1 ? { color: "white" } : {}} > Create </p>
+      </NavLink>
+      <NavLink to="/admin/hotels/update" className="updateHotels" style={active === 2 ? { backgroundColor: "#EE4B4D" } : {}} >
+        <p style={active === 2 ? { color: "white" } : {}} > Update </p>
+      </NavLink>
     </div>
   );
 }

@@ -40,3 +40,9 @@ border-radius:4px;
     margin-top: 35px;
     margin-bottom: 10px;
 }
+#form_modal-update div div div{
+  display:flex;
+}
+#form_modal-update .modal-old input{
+  text-decoration:line-through;
+}

@@ -43,7 +43,7 @@ function CreateHotel() {
   return (
     <div className="container_hotel">
       <AdminMenu active={1}></AdminMenu>
-      <Form onSubmit={handleSubmit(onSubmit)} className="form_update">
+      <Form onSubmit={handleSubmit(onSubmit)} className="form_update"id="Form_create">
         <AdminHotelMenu active={1}></AdminHotelMenu>
         <Form.Group className="form-group-flex">
           <Form.Group className="form-group-left">

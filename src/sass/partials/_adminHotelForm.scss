@@ -4,7 +4,7 @@
     display: flex;
    
 }
-.adminMenu div{
+.adminMenu a{
     padding: 7px 20px;
     background-color: $lightGrey;
     border-bottom: 1px solid $grey;
@@ -12,27 +12,27 @@
     
 
 }
-.adminMenu div:hover{
-    
-  background-color: $grey;
+.adminMenu a:hover{
+  text-decoration:none;
+  background-color: $red;
 
 }
-.adminMenu div:hover a{
+.adminMenu a:hover p{
     color: white;
     text-decoration: none;
 }
 
-.adminMenu a{
+.adminMenu p{
   color:$dark;
 }
 
-.adminMenu div:first-child {
+.adminMenu a:first-child {
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
     border-left: 1px solid $grey;
 }
 
-.adminMenu div:last-child {
+.adminMenu a:last-child {
    
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
@@ -65,8 +65,8 @@
 .form_update .form-group-flex {
   margin-top:20px;
   display: grid;
-    grid-template-columns: auto auto; 
-      grid-template-rows: auto;
+  grid-template-columns: auto auto; 
+  grid-template-rows: auto;
 }
 .form_update .form-group-right {
   margin-left:10px;
@@ -87,34 +87,28 @@
 }
 
 .form_update .form-label {
- 
-    color: $dark;
+
+  color: $dark;
 }
 .form_update-select{
-    background-color: $grey;
-    color: white;
-    margin-top: 30px;
-    
+  background-color: $red;
+  color: white;
+  margin-top: 30px;
+}
+.form_update-select:hover{
+  cursor:pointer;    
 }
 .form_update-select:focus{
-    background-color: $grey;
-    color: white;
-    box-shadow: none;
+  background-color: $red;
+  color: white;
+  box-shadow: none;
 }
 .form_update-select .select_heading {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 .form_update .form-label{
-    font-style: oblique;
+  font-style: oblique;
 }
-.form_flex {
-    position: relative;
-
-}
-.form_flex-input{
-    width: 90%;
-}
-
 .form_update button {
     margin-top: 30px;
     padding: 5px 30px;
@@ -123,10 +117,7 @@
 
 }
 .form_update .btn-primary:hover {
-    
     background-color: $darkRed;
-   
-
 }
 .formGroup-readonly{
     max-width: 300px;
@@ -135,11 +126,9 @@
     border-radius: 6px;
     margin-right: 20px;
     background-color: white;
-
 }
 .formGroup-readonly div{
     display: flex;
-
 }
 .formGroup-readonly label{
     margin-top: 10px;
@@ -151,13 +140,21 @@
     display: flex;
    
     flex-wrap: wrap ;
-
 }
-
 @media (max-width: 1060px){
-   .form_readonly{
-        justify-content: center;
-
-    }
-
+  .form_update .form-group-flex {
+    margin-top:20px;
+    display: grid;
+    grid-template-columns: auto; 
+    grid-template-rows: auto;
+  }
+  .form_update .form-group-left div:first-child{
+    width:90%;
+  }
+  .form_update .form-group-right,.form_update .form-group-left{
+    margin:0;
+  }
+  #Form_create .form-group-left div:first-child{
+    width:100%;
+  }
 }

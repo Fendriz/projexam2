@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useParams } from "react-router-dom";
 import { useHistory } from "react-router-dom";
@@ -14,7 +14,9 @@ import { NavLink } from "react-router-dom";
 import { SchemaHotel } from "../../validation/Schema";
 import Spinner from "react-bootstrap/Spinner";
 import DeleteHotel from "./DeleteHotel";
+import UpdateHotelModal from "../../modals/updateHotelModal";
 
+import { AuthContext } from "../../../context/AuthContext";
 function UpdateHotel() {
   const {
     register,
@@ -27,7 +29,9 @@ function UpdateHotel() {
   const history = useHistory();
   const [hotels, setHotels] = useState([]);
   const [hotel, setHotel] = useState({});
+  const [data, setData] = useState({});
 
+  const { openModal,ismodal } = useContext(AuthContext);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [first, firstload] = useState(false);
@@ -55,7 +59,6 @@ function UpdateHotel() {
       .catch((error) => console.log(error));
   }, []);
 
-  console.log(hotels);
 
   if (loading) {
     return <Spinner animation="border" className="spinner" />;
@@ -67,17 +70,19 @@ function UpdateHotel() {
       firstload(true);
     }
 
-    async function onSubmit(data) {
-      const fetchUrl = BASE_URL + "establishments/" + hotel.id;
-      const updateOptions = {
-        headers,
-        method: PATCH,
-        body: JSON.stringify(data),
-      };
-      await fetch(fetchUrl, updateOptions);
-      history.push("/admin/hotels/update");
-      console.log(data);
-      history.go(0);
+    function onSubmit(data) {
+      console.log(ismodal);
+      setData(data);
+      openModal();
+     // const fetchUrl = BASE_URL + "establishments/" + hotel.id;
+     // const updateOptions = {
+     //   headers,
+     //   method: PATCH,
+     //   body: JSON.stringify(data),
+     // };
+     // await fetch(fetchUrl, updateOptions);
+     // history.push("/admin/hotels/update");
+     // history.go(0);
     }
 
     function changeSelect(data) {
@@ -128,10 +133,6 @@ function UpdateHotel() {
       });
     }
 
-    function changeInput(e) {
-      console.log(e);
-    }
-
     return (
       <div className="container_hotel">
         <AdminMenu active={1}></AdminMenu>
@@ -153,7 +154,6 @@ function UpdateHotel() {
             <Form.Group className="form-group-left ">
               <Form.Group>
                 <Form.Label>Hotel Name</Form.Label>
-                {console.log("test")}
                 <Form.Control
                   name="name"
                   {...register("name")}
@@ -165,7 +165,6 @@ function UpdateHotel() {
               </Form.Group>
               <Form.Group>
                 <Form.Label>Hotel Address</Form.Label>
-                {console.log("test")}
                 <Form.Control
                   name="address"
                   {...register("address")}
@@ -265,6 +264,7 @@ function UpdateHotel() {
                 Submit
               </Button>
             </Form.Group>
+            {(ismodal)?<UpdateHotelModal data={data} hotel={hotel}></UpdateHotelModal>:<div></div>}
           </Form.Group>
         </Form>
       </div>

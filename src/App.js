@@ -40,26 +40,10 @@ function App() {
             <Route path="/hotel/:id" component={HotelDetails} />
             <Route path="/admin" exact component={CreateHotel} />
             <Route path="/admin/hotels" exact component={Hotels} />
-            <Route
-              path="/admin/hotels/create"
-              exact
-              component={CreateHotel}
-            />
-            <Route
-              path="/admin/hotels/update"
-              exact
-              component={UpdateHotel}
-            />
-            <Route
-              path="/admin/hotels/update/:id"
-              exact
-              component={UpdateHotelId}
-            />
-            <Route
-              path="/admin/enquiries"
-              exact
-              component={Enquiries}
-            />
+            <Route path="/admin/hotels/create" exact component={CreateHotel} />
+            <Route path="/admin/hotels/update" exact component={UpdateHotel} />
+            <Route path="/admin/hotels/update/:id" exact component={UpdateHotelId} />
+            <Route path="/admin/enquiries" exact component={Enquiries} />
             <Route path="/admin/messages" exact component={Messages} />
             <Route path="/admin/accounts" exact component={Accounts} />
             <Redirect to="/" />

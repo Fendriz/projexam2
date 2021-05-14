@@ -9,6 +9,7 @@ const AuthContextProvider = ({ children }) => {
   const [users, setUsers] = useState(Object.entries(localStorage));
   const [islogged, setlogged] = useState(false);
   const [hotels, setHotels] = useState([]);
+  const [ismodal, setShow]=useState(false);
   // console.log(existingUser);
   function registerUser({ username, password }) {
   localStorage.setItem(username, password);
@@ -60,10 +61,16 @@ const AuthContextProvider = ({ children }) => {
    
     return hotels
   }
+  function openModal(){
+   setShow(true);
+  }
+  function closeModal(){
+    setShow(false);
+  }
 
   return (
     <AuthContext.Provider
-      value={{ users, islogged, hotels, registerUser, logout, login, removeUser, getHotel }}
+      value={{ users, islogged, hotels, registerUser, logout, login, removeUser, getHotel,openModal,closeModal,ismodal }}
     >
       {children}
     </AuthContext.Provider>
