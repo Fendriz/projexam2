@@ -70,19 +70,19 @@ function UpdateHotel() {
       firstload(true);
     }
 
-    function onSubmit(data) {
+    async function onSubmit(data) {
       console.log(ismodal);
       setData(data);
       openModal();
-     // const fetchUrl = BASE_URL + "establishments/" + hotel.id;
-     // const updateOptions = {
-     //   headers,
-     //   method: PATCH,
-     //   body: JSON.stringify(data),
-     // };
-     // await fetch(fetchUrl, updateOptions);
-     // history.push("/admin/hotels/update");
-     // history.go(0);
+      // const fetchUrl = BASE_URL + "establishments/" + hotel.id;
+      // const updateOptions = {
+      //   headers,
+      //   method: PATCH,
+      //   body: JSON.stringify(data),
+      // };
+      // await fetch(fetchUrl, updateOptions);
+      // history.push("/admin/hotels/update");
+      // history.go(0);
     }
 
     function changeSelect(data) {
@@ -149,7 +149,7 @@ function UpdateHotel() {
               })}
             </Form.Control>
           </Form.Group>
-          <DeleteHotel id={hotel.id} name={hotel.name}></DeleteHotel>
+          {(typeof hotel.id === 'string' &&typeof hotel.name === 'string')?<DeleteHotel id={hotel.id} name={hotel.name} />:<div></div>}
           <Form.Group className="form-group-flex">
             <Form.Group className="form-group-left ">
               <Form.Group>
@@ -260,7 +260,7 @@ function UpdateHotel() {
                   {...register("selfCatering")}
                 />
               </Form.Group>
-              <Button type="submit" class="button">
+              <Button type="submit" className="button">
                 Submit
               </Button>
             </Form.Group>

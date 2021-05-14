@@ -31,24 +31,24 @@ function App() {
       <Router>
         <Nav />
 
-        <body>
+        <div className="body">
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/contact" component={Contact} />
             <Route path="/hotel/:id" component={HotelDetails} />
-            <Route path="/admin" exact component={CreateHotel} />
-            <Route path="/admin/hotels" exact component={Hotels} />
-            <Route path="/admin/hotels/create" exact component={CreateHotel} />
-            <Route path="/admin/hotels/update" exact component={UpdateHotel} />
-            <Route path="/admin/hotels/update/:id" exact component={UpdateHotelId} />
-            <Route path="/admin/enquiries" exact component={Enquiries} />
-            <Route path="/admin/messages" exact component={Messages} />
-            <Route path="/admin/accounts" exact component={Accounts} />
+            <ProtectedRoute path="/admin" exact component={CreateHotel} />
+            <ProtectedRoute path="/admin/hotels" exact component={Hotels} />
+            <ProtectedRoute path="/admin/hotels/create" exact component={CreateHotel} />
+            <ProtectedRoute path="/admin/hotels/update" exact component={UpdateHotel} />
+            <ProtectedRoute path="/admin/hotels/update/:id" exact component={UpdateHotelId} />
+            <ProtectedRoute path="/admin/enquiries" exact component={Enquiries} />
+            <ProtectedRoute path="/admin/messages" exact component={Messages} />
+            <ProtectedRoute path="/admin/accounts" exact component={Accounts} />
             <Redirect to="/" />
           </Switch>
-        </body>
+        </div>
 
         <Footer />
       </Router>

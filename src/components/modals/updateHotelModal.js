@@ -1,29 +1,17 @@
 
-import React, { useState, useEffect,useContext } from "react";
-
+import React, { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { SchemaEnquire} from "../validation/Schema"
 import { BASE_URL, headers,PATCH } from "../../constants/api";
-import Moment from 'moment';
 import { AuthContext } from "../../context/AuthContext";
+import { useHistory } from "react-router-dom";
 
 function UpdateHotelModal(props) {
-  //const [show, setShow] = useState(true);
-  //const handleClose = () => setShow(false);
-  const url = BASE_URL + "enquiries";
+  const history = useHistory();
   const { closeModal,ismodal } = useContext(AuthContext);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(SchemaEnquire),
-  });
-  async function onSubmit() {
+
+  async function onClick() {
   console.log(props)
       const fetchUrl = BASE_URL + "establishments/" + props.hotel.id;
       const updateOptions = {
@@ -32,6 +20,8 @@ function UpdateHotelModal(props) {
         body: JSON.stringify(props.data),
       };
       await fetch(fetchUrl, updateOptions);
+      history.push("/admin/hotels/update");
+      history.go(0);
     }
   return (
       <Modal
@@ -46,17 +36,17 @@ function UpdateHotelModal(props) {
         </Modal.Header>
         <Modal.Body>
           <div className="formContainer">
-            <Form onSubmit={handleSubmit(onSubmit)} className="form_update" id="form_modal-update">
+            <Form  className="form_update" id="form_modal-update">
               <Form.Group className="form-group-update ">
                 <Form.Group className="form-group-left ">
                   <Form.Group className="modal-group">
                     <Form.Group className="modal-old">
                       <Form.Label>Name</Form.Label>
-                      <Form.Control name="name" {...register("name")} readOnly isInvalid value={props.hotel.name} />
+                      <Form.Control readOnly isInvalid value={props.hotel.name} />
                     </Form.Group>
                     <Form.Group className="modal-new">
                       <Form.Label>Name</Form.Label>
-                      <Form.Control name="hotel" {...register("name")} readOnly isValid value={props.data.name} />
+                      <Form.Control readOnly isValid value={props.data.name} />
                     </Form.Group>
                   </Form.Group>
                   <Form.Group className="modal-group">
@@ -160,7 +150,7 @@ function UpdateHotelModal(props) {
                     <Form.Label>New</Form.Label>
                     {props.hotel.selfCatering?<p>YES selfcatering</p>:<p>NO selfcatering</p>}
                   </Form.Group>
-                  <Button type="submit" class="button">
+                  <Button  className="button" onClick={onClick}>
                     Submit
                   </Button>
                 </Form.Group>

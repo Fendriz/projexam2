@@ -21,7 +21,7 @@ function Nav() {
             <NavLink to="/" >Home</NavLink>
             <NavLink to="/contact" activeClassName ="activeLinkNormal">Contact</NavLink>
             <NavLink to="/login" activeClassName ="activeLinkNormal">
-                <Button class="button" >Login</Button>
+                <Button className="button" >Login</Button>
             </NavLink>
           </NavB>
         </Navbar.Collapse>

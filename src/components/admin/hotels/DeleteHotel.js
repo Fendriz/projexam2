@@ -34,7 +34,7 @@ function DeleteHotel({ id, name }) {
     console.log(id);
   }
 
-  return <i class="fas fa-trash-alt" onClick={checkDelete}></i>;
+  return <i className="fas fa-trash-alt" onClick={checkDelete}></i>;
 }
 DeleteHotel.propTypes = {
   id: PropTypes.string.isRequired,
