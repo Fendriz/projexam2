@@ -24,15 +24,15 @@ border-radius:4px;
     
 }
 .enquire-modal-header .close:hover{
-    background-color: $darkYellow;
-   color:white; 
-   opacity: 1.0 !important;
+  background-color: $darkYellow;
+  color:white; 
+  opacity: 1.0 !important;
 }
 .modal-body{
-    padding:0rem 1rem;
+   padding:0rem 1rem;
 }
 .modal-body p{
-    margin-bottom:1rem;
+   margin-bottom:1rem;
 }
 
 .modal-body button{
@@ -40,9 +40,53 @@ border-radius:4px;
     margin-top: 35px;
     margin-bottom: 10px;
 }
-#form_modal-update div div div{
-  display:flex;
+#update-modal{
+    margin:0 auto;
+}
+#update-modal input{
+    font-size:14px;
+}
+#update-modal .modal-header div{
+    font-size:25px;
+}
+#update-modal .form-group-flex {
+}
+#update-modal .form-group-flex div{
+    width:100%;
+}
+#update-modal .modal-body{
+    padding:0;
+}
+#update-modal p{
+    margin-bottom:2px;
+}
+#form_modal-update{
+
+    margin-top:2px;
+}
+.modal-group{
+    margin-top:20px;
+    display: grid;
+    grid-template-columns: auto auto; 
+    grid-template-rows: auto;
+}
+#update-modal .modal-group{
+    margin:0;
 }
 #form_modal-update .modal-old input{
   text-decoration:line-through;
+  border:2px solid $red;
+}
+#form_modal-update .modal-new input{
+  border:2px solid $green;
+}
+#update-modal .formContainer{
+    max-width:none; 
+}
+@media (min-width: 576px){
+        #update-modal{
+            
+        max-width:1060px;
+        margin:0 auto;
+    }
 }
