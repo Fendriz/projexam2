@@ -1,16 +1,11 @@
 import React, { useState, useEffect,useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useParams } from "react-router-dom";
-import { useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { BASE_URL, headers, PATCH } from "../../../constants/api";
-
+import { BASE_URL, headers } from "../../../constants/api";
 import { yupResolver } from "@hookform/resolvers/yup";
-
 import AdminHotelMenu from "../adminform/AdminHotelMenu";
 import AdminMenu from "../adminform/AdminMenu";
-import { NavLink } from "react-router-dom";
 import { SchemaHotel } from "../../validation/Schema";
 import Spinner from "react-bootstrap/Spinner";
 import DeleteHotel from "./DeleteHotel";
@@ -18,52 +13,22 @@ import UpdateHotelModal from "../../modals/updateHotelModal";
 
 import { AuthContext } from "../../../context/AuthContext";
 function UpdateHotel() {
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(SchemaHotel),
-  });
-  const history = useHistory();
+  const { register, handleSubmit, setValue, formState: { errors }, } = useForm({ resolver: yupResolver(SchemaHotel), });
   const [hotels, setHotels] = useState([]);
   const [hotel, setHotel] = useState({});
   const [data, setData] = useState({});
-
   const { openModal,ismodal } = useContext(AuthContext);
-  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [first, firstload] = useState(false);
-
   const url = BASE_URL + "establishments";
-
   const options = { headers };
-
   useEffect(() => {
-    fetch(url, options)
-      .then((response) => response.json())
-      .then((json) => {
-        // handle error
-        if (json.error) {
-          setHotels([]);
-
-          setError(json.message);
-        } else {
-          setHotels(json);
-          // setHotel(hotels[0])
-          setLoading(false);
-        }
-      })
-      // .then(setHotel(hotels[0]))
+    fetch(url, options) .then((response) => response.json()) .then((json) => {
+        if (json.error) { setHotels([]); setError(json.message); } else { setHotels(json); setLoading(false); } })
       .catch((error) => console.log(error));
   }, []);
 
-
-  if (loading) {
-    return <Spinner animation="border" className="spinner" />;
-  }
-
+  if (loading) { return <Spinner animation="border" className="spinner" />; }
   if (!loading) {
     if (!first) {
       setHotel(hotels[0]);
@@ -74,17 +39,7 @@ function UpdateHotel() {
       console.log(ismodal);
       setData(data);
       openModal();
-      // const fetchUrl = BASE_URL + "establishments/" + hotel.id;
-      // const updateOptions = {
-      //   headers,
-      //   method: PATCH,
-      //   body: JSON.stringify(data),
-      // };
-      // await fetch(fetchUrl, updateOptions);
-      // history.push("/admin/hotels/update");
-      // history.go(0);
     }
-
     function changeSelect(data) {
       hotels.map((hotel) => {
         if (data.target.value === hotel.name) {
