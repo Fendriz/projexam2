@@ -8,7 +8,7 @@ import AdminHotelMenu from "../adminform/AdminHotelMenu";
 import AdminMenu from "../adminform/AdminMenu";
 import { SchemaHotel } from "../../validation/Schema";
 import Spinner from "react-bootstrap/Spinner";
-import DeleteHotel from "./DeleteHotel";
+import DeleteFromApi from "../adminform/DeleteFromApi";
 import UpdateHotelModal from "../../modals/updateHotelModal";
 
 import { AuthContext } from "../../../context/AuthContext";
@@ -22,9 +22,10 @@ function UpdateHotel() {
   const [first, firstload] = useState(false);
   const url = BASE_URL + "establishments";
   const options = { headers };
+
   useEffect(() => {
-    fetch(url, options) .then((response) => response.json()) .then((json) => {
-        if (json.error) { setHotels([]); setError(json.message); } else { setHotels(json); setLoading(false); } })
+    fetch(url, options).then((response) => response.json()).then((json) => {
+        if (json.error) { setHotels([]); } else { setHotels(json); setLoading(false); } })
       .catch((error) => console.log(error));
   }, []);
 
@@ -41,7 +42,7 @@ function UpdateHotel() {
       openModal();
     }
     function changeSelect(data) {
-      hotels.map((hotel) => {
+      hotels.forEach((hotel) => {
         if (data.target.value === hotel.name) {
           setHotel(hotel);
           setValue("name", hotel.name, {
@@ -104,7 +105,7 @@ function UpdateHotel() {
               })}
             </Form.Control>
           </Form.Group>
-          {(typeof hotel.id === 'string' &&typeof hotel.name === 'string')?<DeleteHotel id={hotel.id} name={hotel.name} />:<div></div>}
+          {(typeof hotel.id === 'string' &&typeof hotel.name === 'string')?<DeleteFromApi id={hotel.id} name={hotel.name} button="fa-trash-alt" item="establishments/"/>:<div></div>}
           <Form.Group className="form-group-flex">
             <Form.Group className="form-group-left ">
               <Form.Group>

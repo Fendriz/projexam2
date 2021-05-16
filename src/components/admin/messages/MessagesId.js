@@ -1,16 +1,14 @@
 import React from "react";
-import AdminMenu from "../adminform/AdminHotelMenu";
 import Form from "react-bootstrap/Form";
 import PropTypes from "prop-types";
 import Button from "react-bootstrap/Button";
+import DeleteFromApi from "../adminform/DeleteFromApi";
 
-function MessagesID({ id, name,email, message }) {
-  function changeSelect() {
-    console.log("changeselct");
-  }
+function MessagesID({ id, name,email, message,order }) {
   return (
-    <>
       <Form.Group className="formGroup-readonly">
+        <Form.Label className="readonly-id">#{order+1} </Form.Label>
+       <DeleteFromApi id={id} name={name} button="fa-window-close" item="contacts/"/>
         <Form.Group>
           <Form.Control value={name} readOnly name="name" />
         </Form.Group>
@@ -31,7 +29,6 @@ function MessagesID({ id, name,email, message }) {
           Replay
         </Button>
       </Form.Group>
-    </>
   );
 }
 MessagesID.propTypes = {

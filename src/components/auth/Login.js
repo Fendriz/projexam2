@@ -6,30 +6,14 @@ import Form from "react-bootstrap/Form";
 import { AuthContext } from "../../context/AuthContext";
 
 function Login() {
-  const { login, islogged } = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
   const { register, handleSubmit } = useForm();
   const history = useHistory();
   const [FaultyPwd, setFaultyPwd] = useState(false);
 
-  console.log(FaultyPwd);
   function onSubmit(data) {
-    // if (login(credentials.username)) {
-    console.log("fitte");
-    login(data);
-    if (!islogged) {
-      setFaultyPwd(true);
-    }
-
-    if (islogged) {
-      history.push("/admin/hotels/create");
-    }
-
-    // if (login(data)) {
-    // history.push("/admin");
-    // console.log("finally");
-    // }
+    login(data)?history.push("/admin/hotels/create"):setFaultyPwd(true);
   }
-
   return (
     <div className="formBackground" id="login">
       <div className="formContainer">

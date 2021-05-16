@@ -1,15 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import NavB from "react-bootstrap/Nav";
 import Logoinv from "../../images/logoinv.png";
-import { AuthContext } from "../../context/AuthContext";
 import Logout from "../auth/Logout";
 
 
 function Nav() {
-  const { islogged } = useContext(AuthContext);
-  console.log(islogged);
   return (
   
       <Navbar expand="lg" fixed="top" className="navAdmin">

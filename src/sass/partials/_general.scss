@@ -120,6 +120,16 @@ a{
 .fa-trash-alt:hover{
     cursor:pointer;
 }
+.fa-window-close{
+		float:right;
+    font-size: 25px;
+    padding: 5px;
+    background-color:white;
+    color: $red;
+}
+.fa-window-close:hover{
+    cursor:pointer;
+}
 
 .react-confirm-alert-body{
 	text-align: center;
@@ -144,7 +154,14 @@ a{
 	margin-right: 15px;
 	
 }
-
+.admin-button{
+	background-color: $red;
+	color:white;
+	width:100%;
+}
+.admin-button:hover{
+	background-color: $darkRed;
+}
 
 @media (max-width: 1500px){
     .container_hotel {

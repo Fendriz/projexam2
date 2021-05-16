@@ -9,7 +9,7 @@ $dark:#3D3D3D;
 $darkRed:#cc2d30;
 $darkYellow:#d39823;
 $green:#28A745;
-
+//Imports
 @import "partials/_home";
 @import "partials/_hotelCards";
 @import "partials/_general";
@@ -23,4 +23,5 @@ $green:#28A745;
 @import "partials/_admin";
 @import "partials/_adminHotelForm";
 @import "partials/_modal";
+@import "partials/_accounts";
 

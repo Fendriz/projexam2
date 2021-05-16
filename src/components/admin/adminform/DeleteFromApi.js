@@ -1,15 +1,15 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { confirmAlert } from "react-confirm-alert";
-import Button from "react-bootstrap/Button";
 import { BASE_URL, headers, DELETE } from "../../../constants/api";
 import PropTypes from "prop-types";
 
 import "react-confirm-alert/src/react-confirm-alert.css";
 
-function DeleteHotel({ id, name }) {
+function DeleteFromApi({ id, name, button, item }) {
   const history = useHistory();
   const title = `Confirm deleting ${name}`;
+  const abutton = `fas ${button}` 
   function checkDelete() {
     confirmAlert({
       title: title,
@@ -26,19 +26,19 @@ function DeleteHotel({ id, name }) {
   }
 
   async function deleteHotel() {
-    const url = BASE_URL + "establishments/" + id;
+    const url = BASE_URL+item+id;
     const options = { headers, method: DELETE };
     await fetch(url, options);
-    history.push("/admin/hotels/update");
     history.go(0);
-    console.log(id);
   }
 
-  return <i className="fas fa-trash-alt" onClick={checkDelete}></i>;
+  return <i className={abutton} onClick={checkDelete}></i>;
 }
-DeleteHotel.propTypes = {
+DeleteFromApi.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  button: PropTypes.string.isRequired,
+  item: PropTypes.string.isRequired,
 };
 
-export default DeleteHotel;
+export default DeleteFromApi;

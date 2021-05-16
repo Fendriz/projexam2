@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
 import { BASE_URL, headers } from "../../../constants/api";
 import Spinner from "react-bootstrap/Spinner";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import HotellItem from "./HotelItem"
 import Search from "../Search"
 

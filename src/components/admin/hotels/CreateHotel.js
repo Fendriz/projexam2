@@ -8,7 +8,6 @@ import { BASE_URL, headers } from "../../../constants/api";
 import AdminHotelMenu from "../adminform/AdminHotelMenu";
 import AdminMenu from "../adminform/AdminMenu";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import { SchemaHotel } from "../../validation/Schema";
 
 function CreateHotel() {
@@ -22,21 +21,11 @@ function CreateHotel() {
 
   const history = useHistory();
 
-  const newEstablishment = {
-    name: "A hotel name",
-    email: "someone@email.com",
-    image: "path/to/image",
-    // ...other properties
-  };
-
   async function onSubmit(data) {
     console.log("data", data);
     const url = BASE_URL + "establishments";
-
     const options = { headers, method: "POST", body: JSON.stringify(data) };
-
     await fetch(url, options);
-
     history.push("/admin/hotels/update");
   }
 

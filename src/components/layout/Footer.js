@@ -10,22 +10,22 @@ function Footer() {
         islogged ? { backgroundColor: "#00367A" } : { backgroundColor: "white" }
       }
     >
-      <a href="https://witter.com" target="_blank">
+      <a href="https://witter.com" target="_blank" rel="noreferrer">
         <div className="twitter">
           <i className="fab fa-twitter"></i>
         </div>
       </a>
-      <a href="https://facebook.com" target="_blank">
+      <a href="https://facebook.com" target="_blank" rel="noreferrer">
         <div className="facebook">
           <i className="fab fa-facebook-f"></i>
         </div>
       </a>
-      <a href="https://instagram.com" target="_blank">
+      <a href="https://instagram.com" target="_blank" rel="noreferrer">
         <div className="instagram">
           <i className="fab fa-instagram"></i>
         </div>
       </a>
-      <a href="" target="_blank">
+      <a>
         <div className="mail">
           <i className="fas fa-envelope"></i>
         </div>

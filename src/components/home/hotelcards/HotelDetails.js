@@ -2,11 +2,6 @@ import React, { useState, useEffect } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import { useParams } from "react-router-dom";
 import { BASE_URL, headers } from "../../../constants/api";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Image from "react-bootstrap/Image";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
 import EnquireModal from "../../modals/enquireModal"
 
 
@@ -19,11 +14,9 @@ function HotelDetails() {
    
  
 
-    const [error, setError] = useState(null);
 
 	let { id } = useParams();
   
-    let catering;
 	const url = BASE_URL + "establishments/" + id;
 
     const options = { headers };
@@ -36,7 +29,6 @@ function HotelDetails() {
                 // handle error
                 if (json.error) {
                     setDetail([]);
-                    setError(json.message);
                 } else {
                     setDetail(json);
                     setLoading(false);
@@ -76,6 +68,7 @@ function HotelDetails() {
                 <div className="detail_content-location">
                     <h4>Location</h4>
                     <iframe 
+                        title="hotel-location"
                         width="100%" 
                         height="600" 
                         frameborder="0" 
@@ -97,7 +90,7 @@ function HotelDetails() {
                         <div className="enq">
                             <div><i class="fas fa-utensils"></i></div>
                             <div><p>SELF CATERING: </p></div>
-                            <div className="gen">{detail.selfCatering===true?catering="YES":catering="NO"}</div>
+                            <div className="gen">{detail.selfCatering===true?"YES":"NO"}</div>
                         </div>
                         <div className="enq">
                             <div><i class="fas fa-user-friends"></i></div>

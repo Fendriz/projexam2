@@ -10,11 +10,6 @@ function Messages() {
 
   const options = { headers };
   const [messages, setMessages] = useState([]);
-  const sort = [
-    { id: 1, option: "FirstName" },
-    { id: 2, option: "LastName" },
-    { id: 3, option: "Email" },
-  ];
 
   useEffect(() => {
     fetch(url, options)
@@ -34,39 +29,20 @@ function Messages() {
       .catch((error) => console.log(error));
   }, []);
 
- 
-
-  function changeSelect(data) {
-    console.log("data", data)
-    // const url = BASE_URL + "contacts"
-    // const options = { headers, method: "POST", body: JSON.stringify(data) }
-    // await fetch(url, options)
-  }
   return (
     <>
       <div className="container_hotel">
         <AdminMenu active={3}></AdminMenu>
         <Form className="form_update">
-          <Form.Group controlId="exampleForm.ControlSelect1">
-            <Form.Control
-              as="select"
-              className="form_update-select"
-              onChange={changeSelect}
-            >
-              {sort.map((e) => {
-                return <option key={e.id}>{e.option}</option>;
-              })}
-            </Form.Control>
-
-          </Form.Group>
           <Form.Group className="form_readonly">
-            {messages.map((mes) => {
+            {messages.map((mes,i) => {
               return <MessagesId
                 key={mes.id}
                 id={mes.id}
                 name={mes.name}
                 email={mes.email}
                 message={mes.message}
+                order={i}
               ></MessagesId>
             })}
           </Form.Group>

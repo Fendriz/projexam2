@@ -9,7 +9,6 @@ import { SchemaRegister } from "../validation/Schema";
 
 function Register() {
   const { registerUser } = useContext(AuthContext);
-  const { users } = useContext(AuthContext);
   const history = useHistory();
   const {
     register,
