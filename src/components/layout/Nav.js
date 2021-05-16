@@ -7,7 +7,7 @@ function Nav() {
   const { islogged } = useContext(AuthContext);
   return (
       <>
-      {islogged ? (<NavAdmin/>) : (<NavNormal/>)}
+        {islogged ? (<NavAdmin/>) : (<NavNormal/>)}
       </>
   );
 }

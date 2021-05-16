@@ -37,7 +37,7 @@ function Register() {
               {...register("username")}
             />
             {errors.username && (
-              <p class="text-danger">{errors.username.message}</p>
+              <p className="text-danger">{errors.username.message}</p>
             )}
           </Form.Group>
           <Form.Group>
@@ -49,7 +49,7 @@ function Register() {
               {...register("password")}
             />
             {errors.password && (
-              <p class="text-danger">{errors.password.message}</p>
+              <p className="text-danger">{errors.password.message}</p>
             )}
           </Form.Group>
 

@@ -30,10 +30,9 @@ function Messages() {
   }, []);
 
   return (
-    <>
       <div className="container_hotel">
         <AdminMenu active={3}></AdminMenu>
-        <Form className="form_update">
+        <Form className="form_update" id="form_messages">
           <Form.Group className="form_readonly">
             {messages.map((mes,i) => {
               return <MessagesId
@@ -48,7 +47,6 @@ function Messages() {
           </Form.Group>
         </Form>
       </div>
-    </>
   );
 }
 export default Messages;

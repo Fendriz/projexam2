@@ -36,7 +36,7 @@ function HotelItem({
           <p> {description}</p>
         </div>
         <div className="card__stats">
-          <div class="card__stats-gender">
+          <div className="card__stats-gender">
             <div className="selfCatering">
               <h6>{selfCatering === true ? "YES" : "NO"}</h6>
             </div>

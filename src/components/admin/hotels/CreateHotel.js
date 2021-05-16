@@ -66,7 +66,7 @@ function CreateHotel() {
                 {...register("email")}
               />
               {errors.email && (
-                <p claNamess="text-danger">{errors.email.message}</p>
+                <p className="text-danger">{errors.email.message}</p>
               )}
             </Form.Group>
             <Form.Group>

@@ -48,7 +48,7 @@ function ContactForm() {
           {...register("firstName")}
         />
         {errors.firstName && (
-          <p class="text-danger">{errors.firstName.message}</p>
+          <p className="text-danger">{errors.firstName.message}</p>
         )}
       </Form.Group>
       <Form.Group>
@@ -59,13 +59,13 @@ function ContactForm() {
           {...register("lastName")}
         />
         {errors.lastName && (
-          <p class="text-danger">{errors.lastName.message}</p>
+          <p className="text-danger">{errors.lastName.message}</p>
         )}
       </Form.Group>
       <Form.Group>
         <Form.Label>Email</Form.Label>
         <Form.Control name="email" placeholder="email" {...register("email")} />
-        {errors.email && <p class="text-danger">{errors.email.message}</p>}
+        {errors.email && <p className="text-danger">{errors.email.message}</p>}
       </Form.Group>
       <Form.Group>
         <Form.Label>Message</Form.Label>
@@ -76,10 +76,10 @@ function ContactForm() {
           placeholder="message"
           {...register("mess")}
         />
-        {errors.mess && <p class="text-danger">{errors.mess.message}</p>}
+        {errors.mess && <p className="text-danger">{errors.mess.message}</p>}
       </Form.Group>
 
-      <Button type="submit" class="button">
+      <Button type="submit" className="button">
         Submit
       </Button>
     </Form>

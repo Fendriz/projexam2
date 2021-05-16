@@ -10,23 +10,24 @@ function Nav() {
   return (
   
       <Navbar expand="lg" fixed="top" className="navAdmin">
-        <NavLink to="/" exact>
-          <Navbar.Brand>
-            <img src={Logoinv} alt="Logo" />
-          </Navbar.Brand>
-        </NavLink>
-        <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-        <Navbar.Collapse id="basic-navbar-nav">
-          <NavB className="ml-auto justify-content-end">
-            <NavLink to="/" >Home</NavLink>
-            <NavLink to="/contact" activeClassName ="activeLinkAdmin">Contact</NavLink>
-            <NavLink to="/admin" activeClassName ="activeLinkAdmin">Admin</NavLink>
-           
-            <Logout />
-          </NavB>
-        </Navbar.Collapse>
+        <div className="nav-container">
+          <NavLink to="/" exact>
+            <Navbar.Brand>
+              <img src={Logoinv} alt="Logo" />
+            </Navbar.Brand>
+          </NavLink>
+          <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+          <Navbar.Collapse id="basic-navbar-nav">
+            <NavB className="ml-auto justify-content-end">
+              <NavLink to="/" >Home</NavLink>
+              <NavLink to="/contact" activeClassName ="activeLinkAdmin">Contact</NavLink>
+              <NavLink to="/admin" activeClassName ="activeLinkAdmin">Admin</NavLink>
+             
+              <Logout />
+            </NavB>
+          </Navbar.Collapse>
+        </div> 
       </Navbar>
-   
   );
 }
 

@@ -116,7 +116,7 @@ function UpdateHotel() {
                   defaultValue={hotel.name}
                 />
                 {errors.name && (
-                  <p class="text-danger">{errors.name.message}</p>
+                  <p className="text-danger">{errors.name.message}</p>
                 )}
               </Form.Group>
               <Form.Group>
@@ -127,7 +127,7 @@ function UpdateHotel() {
                   defaultValue={hotel.address}
                 />
                 {errors.address && (
-                  <p class="text-danger">{errors.address.message}</p>
+                  <p className="text-danger">{errors.address.message}</p>
                 )}
               </Form.Group>
               <Form.Group>
@@ -138,7 +138,7 @@ function UpdateHotel() {
                   {...register("email")}
                 />
                 {errors.email && (
-                  <p class="text-danger">{errors.email.message}</p>
+                  <p className="text-danger">{errors.email.message}</p>
                 )}
               </Form.Group>
               <Form.Group>
@@ -149,7 +149,7 @@ function UpdateHotel() {
                   {...register("price")}
                 />
                 {errors.price && (
-                  <p class="text-danger">{errors.price.message}</p>
+                  <p className="text-danger">{errors.price.message}</p>
                 )}
               </Form.Group>
               <Form.Group>
@@ -160,7 +160,7 @@ function UpdateHotel() {
                   {...register("maxGuests")}
                 />
                 {errors.maxGuests && (
-                  <p class="text-danger">{errors.maxGuests.message}</p>
+                  <p className="text-danger">{errors.maxGuests.message}</p>
                 )}
               </Form.Group>
               <Form.Group>
@@ -170,7 +170,7 @@ function UpdateHotel() {
                   defaultValue={hotel.lat}
                   {...register("lat")}
                 />
-                {errors.lat && <p class="text-danger">{errors.lat.message}</p>}
+                {errors.lat && <p className="text-danger">{errors.lat.message}</p>}
               </Form.Group>
               <Form.Group>
                 <Form.Label>Longitude</Form.Label>
@@ -179,7 +179,7 @@ function UpdateHotel() {
                   defaultValue={hotel.lng}
                   {...register("lng")}
                 />
-                {errors.lng && <p class="text-danger">{errors.lng.message}</p>}
+                {errors.lng && <p className="text-danger">{errors.lng.message}</p>}
               </Form.Group>
             </Form.Group>
             <Form.Group className="form-group-right form-margintop">
@@ -191,7 +191,7 @@ function UpdateHotel() {
                   {...register("image")}
                 />
                 {errors.image && (
-                  <p class="text-danger">{errors.image.message}</p>
+                  <p className="text-danger">{errors.image.message}</p>
                 )}
               </Form.Group>
               <Form.Group>
@@ -204,7 +204,7 @@ function UpdateHotel() {
                   {...register("description")}
                 />
                 {errors.description && (
-                  <p class="text-danger">{errors.description.message}</p>
+                  <p className="text-danger">{errors.description.message}</p>
                 )}
               </Form.Group>
               <Form.Group>

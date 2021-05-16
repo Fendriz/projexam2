@@ -7,7 +7,7 @@ import DeleteFromApi from "../adminform/DeleteFromApi";
 function MessagesID({ id, name,email, message,order }) {
   return (
       <Form.Group className="formGroup-readonly">
-        <Form.Label className="readonly-id">#{order+1} </Form.Label>
+        <Form.Label className="readonly-id"># {order+1} </Form.Label>
        <DeleteFromApi id={id} name={name} button="fa-window-close" item="contacts/"/>
         <Form.Group>
           <Form.Control value={name} readOnly name="name" />
@@ -25,7 +25,7 @@ function MessagesID({ id, name,email, message,order }) {
           />
         </Form.Group>
 
-        <Button type="submit" class="button">
+        <Button className="button">
           Replay
         </Button>
       </Form.Group>

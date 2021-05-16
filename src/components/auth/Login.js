@@ -28,7 +28,7 @@ function Login() {
               onChange={() => setFaultyPwd(false)}
             />
             {FaultyPwd && (
-              <p class="text-danger">UserName or Password is wrong</p>
+              <p className="text-danger">UserName or Password is wrong</p>
             )}
           </Form.Group>
 
@@ -42,7 +42,7 @@ function Login() {
               onChange={() => setFaultyPwd(false)}
             />
             {FaultyPwd && (
-              <p class="text-danger">UserName or Password is wrong</p>
+              <p className="text-danger">UserName or Password is wrong</p>
             )}
           </Form.Group>
 

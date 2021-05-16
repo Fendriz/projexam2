@@ -27,7 +27,14 @@ function Accounts() {
                   </thead>
                   <tbody>
                     {users.map((user,i )=>{
-                      return <tr><td>{i+1}</td><td>{user[0]}</td><td>{user[1]}</td><td><Button className="button admin-button" onClick={() => onClick(user[0])}> Delete </Button></td></tr>;
+                      return (
+                        <tr key={i}>
+                          <td>{i+1}</td>
+                          <td>{user[0]}</td>
+                          <td> {user[1]} </td>
+                          <td> <Button className="button admin-button" onClick={() => onClick(user[0])}> Delete </Button> </td>
+                        </tr>
+                      )
                     })} 
                   </tbody>
                 </Table>

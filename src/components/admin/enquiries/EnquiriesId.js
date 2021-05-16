@@ -17,7 +17,7 @@ function EnquiriesId({ id, name, email, checkIn, checkOut, hotels, hotelid, orde
     }, []);
     return (
         <Form.Group className="formGroup-readonly">
-            <Form.Label className="readonly-id">#{order+1} </Form.Label>
+            <Form.Label className="readonly-id"># {order+1} </Form.Label>
             <DeleteFromApi id={id} name={name} button="fa-window-close" item="enquiries/"/>
             <Form.Group  >
                 <Form.Label>Hotel Name</Form.Label>
@@ -43,7 +43,6 @@ function EnquiriesId({ id, name, email, checkIn, checkOut, hotels, hotelid, orde
             <Form.Group>
                 <Form.Label>Check Out</Form.Label>
                 <Form.Control
-                 
                     name="checkOut"
                     value={Moment(checkOut).format("MMM DD YYYY")}
                     readOnly
