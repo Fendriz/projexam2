@@ -1,66 +1,54 @@
-
 html{
-   overflow-x: hidden;
+  overflow-x: hidden;
 }
 .adminMenu{
-    padding-top: 20px;
-    display: flex;
-   
+  padding-top: 20px;
+  display: flex;
 }
 .adminMenu a{
-    padding: 7px 20px;
-    background-color: $lightGrey;
-    border-bottom: 1px solid $grey;
-    border-top: 1px solid $grey;
-    
-
+  padding: 7px 20px;
+  background-color: $lightGrey;
+  border-bottom: 1px solid $grey;
+  border-top: 1px solid $grey;
 }
 .adminMenu a:hover{
   text-decoration:none;
   background-color: $red;
-
 }
 .adminMenu a:hover p{
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
-
 .adminMenu p{
   color:$dark;
 }
-
 .adminMenu a:first-child {
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
-    border-left: 1px solid $grey;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-left: 1px solid $grey;
 }
-
 .adminMenu a:last-child {
-   
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-    border-right: 1px solid $grey;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-right: 1px solid $grey;
 }
 .adminHotelMenu{
   padding-top: 10px;
 }
-
 .form_update{
-    position:relative;
-    background-color: $lightGrey;
-    margin-top:20px;
-    margin-bottom: 50px;
-    padding: 10px 15px;
-    border-radius: 10px;
-    border: 1px solid $grey;
-    
+  position:relative;
+  background-color: $lightGrey;
+  margin-top:20px;
+  margin-bottom: 50px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid $grey;
 }
 .form_update .form-label{
   margin-bottom:2px;
 }
 .form_update .form-control {
   border: 1px solid $grey;
-    
 }
 .form_update .form-group {
   margin-bottom:5px;
@@ -80,17 +68,7 @@ html{
 .form-margintop{
   margin-top:70px;
 }
-.form_update::placeholder{
-    // font-weight: lighter;
-    // color: $grey;
-}
-
-.form_update input, .form_update textarea{
-    // font-weight: bold;
-}
-
 .form_update .form-label {
-
   color: $dark;
 }
 .form_update-select{
@@ -113,43 +91,40 @@ html{
   font-style: oblique;
 }
 .form_update button {
-    margin-top: 30px;
-    padding: 5px 30px;
-    background-color: $red;
-    color: white;
-
+  margin-top: 30px;
+  padding: 5px 30px;
+  background-color: $red;
+  color: white;
 }
 .form_update .btn-primary:hover {
-    background-color: $darkRed;
+  background-color: $darkRed;
 }
 .form_update .formGroup-readonly{
-    max-width: 300px;
-    padding: 10px;
-    border: 1px solid $grey;
-    border-radius: 6px;
-    margin: 20px 14px;
-    background-color: white;
+  max-width: 300px;
+  padding: 10px;
+  border: 1px solid $grey;
+  border-radius: 6px;
+  margin: 20px 14px;
+  background-color: white;
 }
 .formGroup-readonly div{
-    display: flex;
+  display: flex;
 }
 .formGroup-readonly label{
-    margin-top: 10px;
-    width: 150px;
-    align-self: center;
-   
+  margin-top: 10px;
+  width: 150px;
+  align-self: center;
+
 }
 .formGroup-readonly .readonly-id{
   font-weight:bold;
   font-size:18px;
   margin-top:0;
   margin-bottom:15px;
-
 }
 .form_readonly{
-    display: flex;
-   
-    flex-wrap: wrap ;
+  display: flex;
+  flex-wrap: wrap ;
 }
 #form_messages .formGroup-readonly{
   width:300px;
@@ -182,24 +157,23 @@ html{
     width:100%;
   }
 }
+@media (max-width: 744px){
+  .form_readonly{
+    justify-content:center;
+    display:block;
+  }
 
- @media (max-width: 744px){
-   .form_readonly{
-     justify-content:center;
-     display:block;
-   }
+  .form_update .formGroup-readonly {
+    width: auto !important;
+    max-width:900px;
 
-   .form_update .formGroup-readonly {
-     width: auto !important;
-     max-width:900px;
-                             
-   }
-   .form_update .readonly-id{
-     margin-bottom:30px;
-   }
-   .fa-window-close{
-     font-size: 35px;
-   }
+  }
+  .form_update .readonly-id{
+    margin-bottom:30px;
+  }
+  .fa-window-close{
+    font-size: 35px;
+  }
   // .hotelCards{
   //   background-image:none;
   // }
@@ -212,41 +186,41 @@ html{
   // .formContainer{
   //   max-width:200px;
   // }
- }
- @media (max-width: 488px) {
-   h1{
-       font-size: 35px;
-   }
-   .body{
-     font-size:14px !important;
-   }
+}
+@media (max-width: 488px) {
+  h1{
+    font-size: 35px;
+  }
+  .body{
+    font-size:14px !important;
+  }
 
-   .formGroup-readonly .readonly-id{
-     font-size:16px; 
-   }
-   .formGroup-readonly input, .formGroup-readonly textarea{
-     font-size:14px; 
-   }
-   .adminMenuTop{
-     justify-content:space-around;
-     background-color:$lightGrey;
-     padding:0;
-     margin-top:100px;
-     border-radius:4px;
-     border:1px solid $grey;
-   }
-   .adminMenuTop a{
-      padding: 7px 10px;
-      border:none;
-   }
-   .adminMenuTop a:first-child {
-     border-radius: 0px;
-     border: none;
-                 
-   }
-   .adminMenuTop a:last-child {
-     border-radius: 0px;
-     border: none;
-                 
-   }
- }
+  .formGroup-readonly .readonly-id{
+    font-size:16px; 
+  }
+  .formGroup-readonly input, .formGroup-readonly textarea{
+    font-size:14px; 
+  }
+  .adminMenuTop{
+    justify-content:space-around;
+    background-color:$lightGrey;
+    padding:0;
+    margin-top:100px;
+    border-radius:4px;
+    border:1px solid $grey;
+  }
+  .adminMenuTop a{
+    padding: 7px 10px;
+    border:none;
+  }
+  .adminMenuTop a:first-child {
+    border-radius: 0px;
+    border: none;
+
+  }
+  .adminMenuTop a:last-child {
+    border-radius: 0px;
+    border: none;
+
+  }
+}
