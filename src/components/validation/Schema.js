@@ -14,11 +14,11 @@ const SchemaHotel = yup.object().shape({
     .string()
     .required("No Email provided")
     .email("Enter a valid E-mail"),
-  price: yup.number().required("No Price provided"),
-  maxGuests: yup.number("Enter a valid number").required("No Guests provided"),
+  price: yup.number().typeError("Price must be a number").required("No Price provided"),
+  maxGuests: yup.number().typeError("Max Guest must be a number").required("No Guests provided"),
   image: yup.string().required("No url provided").url("Enter a valid url"),
-  lat: yup.number("Enter a valid number").required("No Latitude provided"),
-  lng: yup.number("Enter a valid number").required("No Longitude provided"),
+  lat: yup.number().typeError("Lat must be a number").required("No Latitude provided"),
+  lng: yup.number().typeError("Lng must be a number").required("No Longitude provided"),
   description: yup
     .string("Enter a valid string")
     .required("No message provided")

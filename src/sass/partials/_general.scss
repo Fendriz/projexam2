@@ -1,3 +1,6 @@
+html{
+  overflow-x: hidden;
+}
 h1{
 	font-family: 'Open Sans', sans-serif;
 	font-size: 64px;
@@ -34,11 +37,8 @@ h6{
 	font-family: 'Open Sans', sans-serif;
 	font-size: 20px;
 	margin: 0;
-
 	
 }
-
-
 html{
 	color: $dark;
 	font-family: 'Roboto', sans-serif;
@@ -183,14 +183,3 @@ a{
 	}
 
 }
-// @media (max-width: 1150px){
-//     .container_hotel {
-// 		max-width: 990px;
-// 	}
-// }
-
-// @media (max-width: 1000px){
-//     .container_hotel {
-// 		max-width: 1000px;
-// 	}
-// }
