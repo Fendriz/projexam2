@@ -9,7 +9,7 @@ import AdminMenu from "../adminform/AdminMenu";
 import { SchemaHotel } from "../../validation/Schema";
 import Spinner from "react-bootstrap/Spinner";
 import DeleteFromApi from "../adminform/DeleteFromApi";
-import UpdateHotelModal from "../../modals/updateHotelModal";
+import HotelModal from "../../modals/hotelModal";
 
 import { AuthContext } from "../../../context/AuthContext";
 function UpdateHotel() {
@@ -37,7 +37,6 @@ function UpdateHotel() {
     }
 
     async function onSubmit(data) {
-      console.log(ismodal);
       setData(data);
       openModal();
     }
@@ -220,7 +219,7 @@ function UpdateHotel() {
                 Submit
               </Button>
             </Form.Group>
-            {(ismodal)?<UpdateHotelModal data={data} hotel={hotel}></UpdateHotelModal>:<div></div>}
+            {(ismodal)?<HotelModal data={data} hotel={hotel} apiMethod="PATCH" apiType="establishments/"></HotelModal>:<div></div>}
           </Form.Group>
         </Form>
       </div>

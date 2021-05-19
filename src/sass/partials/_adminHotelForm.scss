@@ -117,26 +117,107 @@ html{
 
 }
 .formGroup-readonly .readonly-id{
+    margin-left:10px;
   font-weight:bold;
   font-size:18px;
-  margin-top:0;
   margin-bottom:15px;
 }
 .form_readonly{
   display: flex;
   flex-wrap: wrap ;
 }
-#form_messages .formGroup-readonly{
-  width:300px;
-  padding:10px 20px;
-}
 #form_messages button{
   width:100%;
   margin-top:20px;
 }
 @media (max-width: 1060px){
+  
+  .detail {
+    &_container{    
+        grid-template-columns: auto ;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "info"
+            "location"
+            "enquire"
+    }
+
+   }
+  .detail iframe{
+    height:300px;
+  }
+  .body{
+    margin-top:60px;
+  }
+  .footer div{
+    padding:0px;
+    font-size: 25px;
+    width:40px;
+    margin:0 15px;
+  }
+  #contactHome{
+    padding-top:35px;
+    padding-bottom:35px;
+  }
+  #contactHome h2{
+    text-align:center;
+    padding-bottom: 20px;
+  }
+  .formContainer{
+    padding:15px;
+  }
+  .hotelCards{
+    padding-top:35px;
+    padding-bottom:35px;
+  }
+  .card{
+    grid-template-columns: 230px;
+    grid-template-rows:35px 150px 45px 115px 50px;
+    margin:10px;
+    justify-content:space-between;
+    border-radius:13px;
+  }
+  .card__img {
+    height:150px;
+  }
+  .card p {
+    font-size:12px;
+  }
+  .card__email, .card__text {
+    padding:5px;
+  }
+  .card__stats p{
+    font-size:12px;
+  }
+  .card__stats-gender, .card__stats-text{
+    padding:10px;
+  }
   h1{
     font-size: 45px;
+  }
+  h2{
+    font-size: 35px;
+  }
+  h5{
+    font-size:20px;
+  }
+  h6{
+    font-size:16px;
+  }
+  .search{
+    height:250px;
+  }
+  .fa-trash-alt{
+    padding:10px;
+    margin-left:40px;
+    margin-top:10px;
+  }
+  .navbar-toggler{
+    padding: 2px 6px;
+  }
+  .navbar-brand img {
+    height: 50px;
+        
   }
   .form_readonly{
     justify-content:center;
@@ -148,13 +229,16 @@ html{
     grid-template-rows: auto;
   }
   .form_update .form-group-left div:first-child{
-    width:90%;
+    width: calc(100% - 60px);
   }
   .form_update .form-group-right,.form_update .form-group-left{
     margin:0;
   }
-  #Form_create .form-group-left div:first-child{
+  #Form_create .form-group-left div:first-child, #form_modal-update .form-group-left div:first-child{
     width:100%;
+  }
+  .detail_container{
+    margin-top:20px;
   }
 }
 @media (max-width: 744px){
@@ -162,17 +246,25 @@ html{
     justify-content:center;
     display:block;
   }
-
+  .formBackground{
+    padding-top:20px;
+  }
+  #contactPage h2,#login h2{
+    padding-bottom:20px;
+  }
   .form_update .formGroup-readonly {
     width: auto !important;
     max-width:900px;
 
   }
   .form_update .readonly-id{
-    margin-bottom:30px;
+    margin-bottom:20px;
   }
   .fa-window-close{
     font-size: 35px;
+  }
+  .detail_image{
+    height:400px;
   }
   // .hotelCards{
   //   background-image:none;
@@ -187,18 +279,101 @@ html{
   //   max-width:200px;
   // }
 }
+@media (max-width: 550px) {
+  .card{
+    grid-template-columns: 200px;
+  }
+  .card__stats p{
+    font-size:11px;
+  }
+  .card__stats-gender, .card__stats-text{
+    padding:9px;
+  }
+  
+}
 @media (max-width: 488px) {
+
+  .footer div{
+    padding:0px;
+    font-size: 25px;
+    width:40px;
+    margin:0 15px;
+  }
+  #contactHome{
+    padding-top:15px;
+    padding-bottom:15px;
+  }
+  #contactHome h2{
+    text-align:center;
+    padding-bottom: 20px;
+  }
+  .hotelCards{
+    padding-top:15px;
+    padding-bottom:15px;
+  }
+  .card{
+    grid-template-columns: 165px;
+    grid-template-rows:26px 100px 35px 105px 50px;
+    margin:5px;
+    justify-content:space-between;
+    border-radius:10px;
+  }
+  .card__name{
+    margin:5px;
+  }
+  .card__img {
+    height:100px;
+  }
+  .card p {
+    font-size:10px;
+  }
+  .card__email, .card__text {
+    padding:3px;
+  }
+  .card__stats p{
+    font-size:9px;
+  }
+  .card__stats-gender, .card__stats-text{
+    padding:5px;
+  }
   h1{
     font-size: 35px;
   }
-  .body{
+  h2{
+    font-size: 30px;
+  }
+  h4{
+    font-size:20px;
+  }
+  h5{
+    font-size:16px;
+  }
+  h6{
+    font-size:14px;
+  }
+  .body, body, .btn{
     font-size:14px !important;
+  }
+  .search{
+    height:200px;
+  }
+  .fa-trash-alt{
+    padding:10px;
+    margin-left:40px;
+    margin-top:0px;
+  }
+  .navbar-toggler{
+    padding: 2px 6px;
+  }
+  .navbar-brand img {
+    height: 50px;
+        
   }
 
   .formGroup-readonly .readonly-id{
     font-size:16px; 
   }
-  .formGroup-readonly input, .formGroup-readonly textarea{
+   .form-control, input, textarea, option, select{
     font-size:14px; 
   }
   .adminMenuTop{
@@ -223,4 +398,24 @@ html{
     border: none;
 
   }
+  .detail_image{
+    height:300px;
+  }
+  .detail_content-enquire .gen {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: bold;
+  }
+  .detail_content-enquire p {
+    font-size: 12px;
+  }
+  .detail h4{
+    border-radius:5px;
+  }
+.detail .Button{
+    width:100px;
+}
+.enquire-modal .modal-content {
+    padding:0px !important;
+}
 }

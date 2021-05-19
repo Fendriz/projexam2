@@ -31,9 +31,9 @@ function EnquireModal(props) {
   }
   return (
     <>
-      <div className="Button" onClick={handleShow}>
+      <button className="Button detail_content-button " onClick={handleShow}>
         Enquire
-      </div>
+      </button>
       <Modal
         show={show}
         onHide={handleClose}
@@ -56,7 +56,7 @@ function EnquireModal(props) {
                   {...register("name")}
                 />
                 {errors.name && (
-                  <p class="text-danger">{errors.name.message}</p>
+                  <p className="text-danger">{errors.name.message}</p>
                 )}
               </Form.Group>
 
@@ -69,7 +69,7 @@ function EnquireModal(props) {
                   {...register("email")}
                 />
                 {errors.email && (
-                  <p class="text-danger">{errors.email.message}</p>
+                  <p className="text-danger">{errors.email.message}</p>
                 )}
               </Form.Group>
               <Form.Group>
@@ -82,7 +82,7 @@ function EnquireModal(props) {
                     {...register("checkIn")}
                   />
                   {errors.checkIn && (
-                    <p class="text-danger">{errors.checkIn.message}</p>
+                    <p className="text-danger">{errors.checkIn.message}</p>
                   )}
                 </Form.Group>
                 <Form.Group>
@@ -94,7 +94,7 @@ function EnquireModal(props) {
                     {...register("checkOut")}
                   />
                   {errors.checkOut && (
-                    <p class="text-danger">{errors.checkOut.message}</p>
+                    <p className="text-danger">{errors.checkOut.message}</p>
                   )}
                 </Form.Group>
                 <Button type="submit" variant="primary" >Submit</Button>

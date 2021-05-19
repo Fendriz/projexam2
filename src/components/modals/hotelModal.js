@@ -1,27 +1,26 @@
-
 import React, { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import { BASE_URL, headers,PATCH } from "../../constants/api";
+import { BASE_URL, headers } from "../../constants/api";
 import { AuthContext } from "../../context/AuthContext";
 import { useHistory } from "react-router-dom";
 
-function UpdateHotelModal(props) {
+function HotelModal(props) {
   const history = useHistory();
   const { closeModal,ismodal } = useContext(AuthContext);
-
+  let id =""
+  if ( props.hotel!=undefined ){
+    id= props.hotel.id
+  }
   async function onClick() {
-  console.log(props)
-      const fetchUrl = BASE_URL + "establishments/" + props.hotel.id;
+    const fetchUrl = BASE_URL + props.apiType + id
       const updateOptions = {
         headers,
-        method: PATCH,
+        method: props.apiMethod,
         body: JSON.stringify(props.data),
       };
       await fetch(fetchUrl, updateOptions);
-      history.push("/admin/hotels/update");
-      history.go(0);
     }
   return (
       <Modal
@@ -32,134 +31,92 @@ function UpdateHotelModal(props) {
         id="update-modal"
       >
         <Modal.Header closeButton className="enquire-modal-header">
-          <Modal.Title>Check changes before update</Modal.Title>
+          <Modal.Title>Check before sending</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div className="formContainer">
             <Form  className="form_update" id="form_modal-update">
-              <Form.Group className="form-group-update ">
+              <Form.Group className="form-group-update form-group-flex">
                 <Form.Group className="form-group-left ">
                   <Form.Group className="modal-group">
-                    <Form.Group className="modal-old">
-                      <Form.Label>Name</Form.Label>
-                      <Form.Control readOnly isInvalid value={props.hotel.name} />
-                    </Form.Group>
                     <Form.Group className="modal-new">
                       <Form.Label>Name</Form.Label>
                       <Form.Control readOnly isValid value={props.data.name} />
                     </Form.Group>
                   </Form.Group>
                   <Form.Group className="modal-group">
-                    <Form.Group className="modal-old">
-                      <Form.Label>address</Form.Label>
-                      <Form.Control readOnly isInvalid value={props.hotel.address} />
-                    </Form.Group>
                     <Form.Group className="modal-new">
                       <Form.Label>address</Form.Label>
                       <Form.Control readOnly isValid value={props.data.address} />
                     </Form.Group>
                   </Form.Group>
                   <Form.Group className="modal-group">
-                    <Form.Group className="modal-old">
-                      <Form.Label>email</Form.Label>
-                      <Form.Control readOnly isInvalid value={props.hotel.email} />
-                    </Form.Group>
                     <Form.Group className="modal-new">
                       <Form.Label>email</Form.Label>
                       <Form.Control readOnly isValid value={props.data.email} />
                     </Form.Group>
                   </Form.Group>
                   <Form.Group className="modal-group">
-                    <Form.Group className="modal-old">
-                      <Form.Label>price</Form.Label>
-                      <Form.Control readOnly isInvalid value={props.hotel.price} />
-                    </Form.Group>
                     <Form.Group className="modal-new">
                       <Form.Label>price</Form.Label>
                       <Form.Control readOnly isValid value={props.data.price} />
                     </Form.Group>
                   </Form.Group>
                   <Form.Group className="modal-group">
-                    <Form.Group className="modal-old">
-                      <Form.Label>maxGuests</Form.Label>
-                      <Form.Control readOnly isInvalid value={props.hotel.maxGuests} />
-                    </Form.Group>
                     <Form.Group className="modal-new">
                       <Form.Label>maxGuests</Form.Label>
                       <Form.Control readOnly isValid value={props.data.maxGuests} />
                     </Form.Group>
                   </Form.Group>
                   <Form.Group className="modal-group">
-                    <Form.Group className="modal-old">
-                      <Form.Label>lat</Form.Label>
-                      <Form.Control readOnly isInvalid value={props.hotel.lat} />
-                    </Form.Group>
                     <Form.Group className="modal-new">
                       <Form.Label>lat</Form.Label>
                       <Form.Control readOnly isValid value={props.data.lat} />
                     </Form.Group>
                   </Form.Group>
+                </Form.Group>
+                <Form.Group className="form-group-right">
                   <Form.Group className="modal-group">
-                    <Form.Group className="modal-old">
-                      <Form.Label>lng</Form.Label>
-                      <Form.Control readOnly isInvalid value={props.hotel.lng} />
-                    </Form.Group>
                     <Form.Group className="modal-new">
                       <Form.Label>lng</Form.Label>
                       <Form.Control readOnly isValid value={props.data.lng} />
                     </Form.Group>
                   </Form.Group>
-                </Form.Group>
-                <Form.Group className="form-group-right form-margintop">
                   <Form.Group> 
-                    <Form.Group className="modal-old">
-                      <Form.Label>image</Form.Label>
-                      <Form.Control readOnly isInvalid value={props.hotel.image} />
-                    </Form.Group>
                     <Form.Group className="modal-new">
                       <Form.Label>image</Form.Label>
                       <Form.Control readOnly isValid value={props.data.image} />
                     </Form.Group>
                   </Form.Group>
                   <Form.Group>
-                    <Form.Group >
-                      <Form.Control
-                        as="textarea"
-                        defaultValue={props.hotel.description}
-                        readOnly
-                        className="modal-old"
-                        isInvalid 
-                        textarea="5"
-                      />
-                    </Form.Group>
-                    <Form.Group>
+                    <Form.Group className="modal-new">
+                      <Form.Label>Description</Form.Label>
                       <Form.Control
                         as="textarea"
                         defaultValue={props.data.description}
                         readOnly
-                        className="modal-old"
+                        rows={6}   
+                        className="modal-new"
                         isValid  
                       />
                     </Form.Group>
                   </Form.Group>
-                  <Form.Group>
-                    <Form.Label>Old</Form.Label>
-                    {props.hotel.selfCatering?<p>YES selfcatering</p>:<p>NO selfcatering</p>}
+                  <Form.Group className="modal-new">
+                    <Form.Label>SelfCatering</Form.Label>
+                    <Form.Control readOnly isValid value={props.data.selfCatering?"yes":"NO"} />
                   </Form.Group>
-                  <Form.Group>
-                    <Form.Label>New</Form.Label>
-                    {props.hotel.selfCatering?<p>YES selfcatering</p>:<p>NO selfcatering</p>}
-                  </Form.Group>
-                  <Button  className="button" onClick={onClick}>
-                    Submit
-                  </Button>
                 </Form.Group>
               </Form.Group>
             </Form>
+            <div className="button-container">
+              <Button  className="button" onClick={onClick}>
+                Submit
+              </Button>
+            </div>
           </div>
         </Modal.Body>
        
       </Modal>
   );
 }
-export default UpdateHotelModal;
+export default HotelModal;

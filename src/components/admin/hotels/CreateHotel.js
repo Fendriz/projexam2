@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState,useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { BASE_URL, headers } from "../../../constants/api";
-
 import AdminHotelMenu from "../adminform/AdminHotelMenu";
 import AdminMenu from "../adminform/AdminMenu";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SchemaHotel } from "../../validation/Schema";
+import HotelModal from "../../modals/hotelModal";
+import { AuthContext } from "../../../context/AuthContext";
 
 function CreateHotel() {
   const {
@@ -18,15 +19,12 @@ function CreateHotel() {
   } = useForm({
     resolver: yupResolver(SchemaHotel),
   });
-
+  const [data, setData] = useState({});
+  const { openModal,ismodal } = useContext(AuthContext);
   const history = useHistory();
-
   async function onSubmit(data) {
-    console.log("data", data);
-    const url = BASE_URL + "establishments";
-    const options = { headers, method: "POST", body: JSON.stringify(data) };
-    await fetch(url, options);
-    history.push("/admin/hotels/update");
+      setData(data);
+      openModal();
   }
 
   return (
@@ -149,6 +147,7 @@ function CreateHotel() {
               Submit
             </Button>
           </Form.Group>
+          {(ismodal)?<HotelModal data={data} apiMethod="POST" apiType="establishments/"></HotelModal>:<div></div>}
         </Form.Group>
       </Form>
     </div>

@@ -26,6 +26,8 @@ function HotelItem({
         <div className="card__email">
           <p>
             <b>Email: </b>
+          </p>
+          <p>
             {email}
           </p>
         </div>
@@ -49,7 +51,7 @@ function HotelItem({
               <h6>{maxGuests}</h6>
             </div>
             <div className="type">
-              <p>MAXGUESTS</p>
+              <p>MAX GUESTS</p>
             </div>
           </div>
         </div>

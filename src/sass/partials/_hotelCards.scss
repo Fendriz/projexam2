@@ -3,12 +3,12 @@
 	display: grid;
 	border-radius: 18px;
 	grid-template-columns: 300px;
-	grid-template-rows: 45px 200px 55px 140px 75px;
+	grid-template-rows: 45px 170px 70px 140px 75px;
 	grid-template-areas: "name" "image" "faction" "text" "stats";
 	box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
 	transition: 0.5s ease;
 	cursor: pointer;
-	margin:30px;
+	margin:25px;
     background-color: $blue;
 	color: $dark;
 
@@ -21,7 +21,7 @@
         background-size: cover;
         position: relative;
         
-        height: 200px;
+        height: 170px;
         margin-left: 5px;
         margin-right: 5px;
 		

@@ -48,7 +48,7 @@ function UpdateHotelId({id}) {
                     {...register("hotel")}
 
                 />
-                {errors.name && <p class="text-danger">{errors.name.message}</p>}
+                {errors.name && <p className="text-danger">{errors.name.message}</p>}
             </Form.Group>
             <Form.Group>
                 <Form.Label>Email</Form.Label>
@@ -57,7 +57,7 @@ function UpdateHotelId({id}) {
                     placeholder={hotel.email}
                     {...register("email")}
                 />
-                {errors.email && <p class="text-danger">{errors.email.message}</p>}
+                {errors.email && <p className="text-danger">{errors.email.message}</p>}
             </Form.Group>
             <Form.Group>
                 <Form.Label>Price per Night</Form.Label>
@@ -66,7 +66,7 @@ function UpdateHotelId({id}) {
                     placeholder={hotel.price}
                     {...register("price")}
                 />
-                {errors.price && <p class="text-danger">{errors.price.message}</p>}
+                {errors.price && <p className="text-danger">{errors.price.message}</p>}
             </Form.Group>
             <Form.Group>
                 <Form.Label>Max Guests</Form.Label>
@@ -75,7 +75,7 @@ function UpdateHotelId({id}) {
                     placeholder={hotel.maxGuests}
                     {...register("guests")}
                 />
-                {errors.guests && <p class="text-danger">{errors.guests.message}</p>}
+                {errors.guests && <p className="text-danger">{errors.guests.message}</p>}
             </Form.Group>
             <Form.Group>
                 <Form.Label>Image Url</Form.Label>
@@ -84,7 +84,7 @@ function UpdateHotelId({id}) {
                     placeholder={hotel.image}
                     {...register("image")}
                 />
-                {errors.image && <p class="text-danger">{errors.image.message}</p>}
+                {errors.image && <p className="text-danger">{errors.image.message}</p>}
             </Form.Group>
             <Form.Group>
                 <Form.Label>Latitude</Form.Label>
@@ -93,7 +93,7 @@ function UpdateHotelId({id}) {
                     placeholder={hotel.lat}
                     {...register("lat")}
                 />
-                {errors.lat && <p class="text-danger">{errors.lat.message}</p>}
+                {errors.lat && <p className="text-danger">{errors.lat.message}</p>}
             </Form.Group>
             <Form.Group>
                 <Form.Label>Longitude</Form.Label>
@@ -102,12 +102,12 @@ function UpdateHotelId({id}) {
                     placeholder={hotel.lng}
                     {...register("lnt")}
                 />
-                {errors.lnt && <p class="text-danger">{errors.lnt.message}</p>}
+                {errors.lnt && <p className="text-danger">{errors.lnt.message}</p>}
             </Form.Group>
             <Form.Group>
                 <Form.Label>ID</Form.Label>
                 <Form.Control name="id" placeholder={hotel.id} {...register("id")} />
-                {errors.id && <p class="text-danger">{errors.id.message}</p>}
+                {errors.id && <p className="text-danger">{errors.id.message}</p>}
             </Form.Group>
             <Form.Group>
                 <Form.Label>Message</Form.Label>
@@ -118,10 +118,10 @@ function UpdateHotelId({id}) {
                     placeholder={hotel.description}
                     {...register("mess")}
                 />
-                {errors.mess && <p class="text-danger">{errors.mess.message}</p>}
+                {errors.mess && <p className="text-danger">{errors.mess.message}</p>}
             </Form.Group>
 
-            <Button type="submit" class="button">
+            <Button type="submit" className="button">
                 Submit
             </Button>
         </>

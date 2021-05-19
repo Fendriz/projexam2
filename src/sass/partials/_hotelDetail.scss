@@ -3,17 +3,37 @@
 .detail {
     text-align: center;
 
-	&_image {
+    &_container{    
+        max-width:1070px;
+        margin:40px auto;
+        display: grid;
+        grid-template-columns: 50% 50% ;
+        grid-template-rows: 50% 50% ;
+        grid-template-areas: 
+            "location info"
+            "location enquire"
+
+                
+    }
+    &_container div{
+        margin:20px;
+    }
+    &_content-enquire div{
+        margin:5px;
+    }
+    &_container p{    
+    }
+    &_image {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         position: relative;
-        height: 600px;
-	}
+        height: 500px;
+    }
 
     &_image h1{
         color: white;
-	}
+    }
     &_name{
         text-align: center;
         background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
@@ -22,52 +42,84 @@
         width: 100%;
     }
     &_content-info {
-       
-        margin: 40px 0;
+        grid-area: info;
+    }
+    &_content-info p{
+        text-align:left;
+    }
+    &_content-location{
+        grid-area: location;
+    }
+    &_content-enquire {
+        grid-area: enquire;
+                
+        display: grid;
+        grid-template-columns:auto ;
+        grid-template-rows:200px 40px; 
+        grid-template-areas: 
+            "price catering  guests"
+            ". enquire ."
+    }
+    &_content-enquire div{
+        margin: 20px 0;
+    }
+    &_content-enquire price{
+        grid-area: price;
+    }
+    &_content-enquire catering{
+        grid-area: catering;
+    }
+    &_content-enquire guests{
+        grid-area: guests;
+    }
+    &_content-enquire h4{
+        grid-area: heading;
+    }
+    &_content-button{
+        grid-area: enquire;
     }
     &_content-info h4{
-       
         background-image: url("../../images/pattern2.png");
         padding: 10px;
         color: white;
     }
     &_content-location h4{
-       
         background-image: url("../../images/pattern2.png");
         padding: 10px;
         color: white;
     }
-    &_content-enquire .enq{
-       
-       display: inline-block;
-       width: 300px;
-       margin: 0 auto;
-       margin: 40px 0;
-      
-       
-    }
     &_content-enquire .gen{
-       
         font-size: 25px;
         font-style: normal;
         font-weight: bold;
-       
-        
-     }
+    }
     &_content-enquire h4{
-       
+
         background-image: url("../../images/pattern2.png");
         padding: 10px;
         color: white;
     }
- }
-
- .detail .fas{
-     font-size: 30px;
-     color: $blue;
- }
-
- .detail .Button{
-    margin: 0 auto;
 }
- 
+
+.detail .fas{
+    font-size: 30px;
+    color: $blue;
+}
+
+.detail .Button{
+    width:250px;
+    margin:0 auto;
+    border:none;
+}
+.detail .Button:hover{
+    cursor:pointer;
+    background-color:$darkYellow;
+}
+.detail h4{
+    border-radius:8px;
+    margin-bottom:10px;
+}
+.detail iframe{
+    border-radius:10px;
+}
+

@@ -1,3 +1,7 @@
+
+.enquire-modal .formContainer{
+    padding:0px;
+}
 .enquire-modal .modal-content{
     background-color: $blue;
     color:white;
@@ -19,14 +23,24 @@
     color: $blue;
     background-color:$yellow;
     opacity:1.0;
-padding:5px 9px;
-border-radius:4px;
+    padding:5px 9px;
+    border-radius:4px;
     
+}
+.update-modal-header .close{
+
+    background-color:$red;
+    color: white;
 }
 .enquire-modal-header .close:hover{
   background-color: $darkYellow;
   color:white; 
   opacity: 1.0 !important;
+}
+.update-modal-header .close:hover{
+
+    background-color:$darkRed;
+    color: white;
 }
 .modal-body{
    padding:0rem 1rem;
@@ -36,10 +50,23 @@ border-radius:4px;
 }
 
 .modal-body button{
-    width:100%;
-    margin-top: 35px;
-    margin-bottom: 10px;
+    width:250px;
+    background-color:$red;
+    color:white;
+    margin: 10px auto;
 }
+.enquire-modal .modal-body button{
+    margin-top:30px;
+    width:100%;
+    background-color:$yellow;
+}
+.modal-body button:hover{
+    background-color:$darkRed;
+}
+.enquire-modal .modal-body button:hover{
+    background-color:$darkYellow;
+}
+
 #update-modal{
     margin:0 auto;
 }
@@ -49,11 +76,6 @@ border-radius:4px;
 #update-modal .modal-header div{
     font-size:25px;
 }
-#update-modal .form-group-flex {
-}
-#update-modal .form-group-flex div{
-    width:100%;
-}
 #update-modal .modal-body{
     padding:0;
 }
@@ -61,23 +83,14 @@ border-radius:4px;
     margin-bottom:2px;
 }
 #form_modal-update{
+    margin:10px;
 
-    margin-top:2px;
-}
-.modal-group{
-    margin-top:20px;
-    display: grid;
-    grid-template-columns: auto auto; 
-    grid-template-rows: auto;
+    
 }
 #update-modal .modal-group{
     margin:0;
 }
-#form_modal-update .modal-old input{
-  text-decoration:line-through;
-  border:2px solid $red;
-}
-#form_modal-update .modal-new input{
+#form_modal-update .modal-new input,#form_modal-update .modal-new textarea{
   border:2px solid $green;
 }
 #update-modal .formContainer{
