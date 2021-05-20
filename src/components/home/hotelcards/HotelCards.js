@@ -19,8 +19,6 @@ function HotelCards() {
         fetch(url, options)
             .then((response) => response.json())
             .then((json) => {
-                console.log(json);
-                // handle error
                 if (json.error) {
                     setHotels([]);
                     setFilteredHotels([]);
@@ -49,21 +47,16 @@ function HotelCards() {
         );
         
     }
-    console.log(hotels[9].name)
 
     function filter(searchTerm) {
-
         const searchValue = searchTerm.toLowerCase();
-
         const filteredArray = hotels.filter((hotel) => {
-
             const lowerCase = hotel.name.toLowerCase()
 
             return(
                 lowerCase.indexOf(searchValue) !== -1
             )
         });
-        console.log(filteredArray)
         setFilteredHotels(filteredArray)
     }
  

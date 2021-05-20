@@ -17,24 +17,16 @@ function ContactForm() {
   });
   const history = useHistory();
   const url = BASE_URL + "contacts";
-
   async function onSubmit(data) {
     const name = data.firstName + " " + data.lastName;
-
     const newData = {
       name: name,
       email: data.email,
       message: data.mess
     }
-  
     const options = { headers, method: "POST", body: JSON.stringify(newData) };
-    console.log("data", newData);
-
     await fetch(url, options);
-
-    history.push("/admin/messages");
-
-  
+    history.go(0)
   }
 
   return (

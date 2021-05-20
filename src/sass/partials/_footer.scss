@@ -6,11 +6,9 @@
     background-color: $yellow;
     margin: 0 20px;
     border-radius: 6px;
-    
 }
 .footer div i{
     color: white;
-    
 }
 .footer{
     width:100%;
@@ -20,9 +18,5 @@
     padding: 20px;
 }
 .footer div:hover{
-   background-color: white; 
-}
-
-.footer div:hover i{
-   color: $yellow; 
+    background-color: $darkYellow; 
 }

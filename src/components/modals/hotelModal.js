@@ -10,7 +10,7 @@ function HotelModal(props) {
   const history = useHistory();
   const { closeModal,ismodal } = useContext(AuthContext);
   let id =""
-  if ( props.hotel!=undefined ){
+  if ( props.hotel!==undefined ){
     id= props.hotel.id
   }
   async function onClick() {

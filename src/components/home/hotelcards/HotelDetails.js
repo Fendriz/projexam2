@@ -17,7 +17,6 @@ function HotelDetails() {
         fetch(url, options)
             .then((response) => response.json())
             .then((json) => {
-                console.log(json);
                 // handle error
                 if (json.error) {
                     setDetail([]);
@@ -31,9 +30,6 @@ function HotelDetails() {
 
     if (loading) {
         return <Spinner animation="border" className="spinner" />;
-    }
-    if(!loading) {
-        console.log(detail)
     }
     const maploc = `https://www.google.com/maps/embed/v1/place?q=${detail.lat},${detail.lng}&key=AIzaSyDDs8r6GYDiEfFWP8EakjkMoCqU0-mI7Ho`
     return (

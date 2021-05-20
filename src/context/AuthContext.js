@@ -5,12 +5,19 @@ const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
   // const users = Object.entries(localStorage);
-
+  let localLogged=false;
+  if(localStorage.getItem("islogged")==="true" ){
+    localLogged=true;
+  }
+  if(localStorage.getItem("islogged")==="false"){
+    localLogged=false;
+  }
   const [users, setUsers] = useState(Object.entries(localStorage));
-  const [islogged, setlogged] = useState(true);//CHANGE TRUE/FALSE TO TOGGLE
+  const [islogged, setlogged] = useState(localLogged);//CHANGE TRUE/FALSE TO TOGGLE FOR TEST
   const [hotels, setHotels] = useState([]);
   const [ismodal, setShow]=useState(false);
 
+ 
   function registerUser({ username, password }) {
     localStorage.setItem(username, password);
     setUsers(Object.entries(localStorage));
@@ -21,6 +28,7 @@ const AuthContextProvider = ({ children }) => {
     if (users.length !== 0) {
       users.forEach((user) => {
         if (user[0] === username && user[1] === password) {
+          localStorage.setItem("islogged", true)
           setlogged(true);
           login= true;
         }
@@ -31,11 +39,11 @@ const AuthContextProvider = ({ children }) => {
   }
 
   function logout() {
+    localStorage.setItem("islogged",false)
     setlogged(false);
     // setUsers(null);
   }
   function removeUser(username){
-    console.log(username+"   fute")
     localStorage.removeItem(username);
   }
   function getHotel() {

@@ -1,5 +1,8 @@
 html{
   overflow-x: hidden;
+	color: $dark;
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
 }
 h1{
 	font-family: 'Open Sans', sans-serif;
@@ -39,11 +42,6 @@ h6{
 	margin: 0;
 	
 }
-html{
-	color: $dark;
-	font-family: 'Roboto', sans-serif;
-	font-size: 16px;
-}
 .body{
 	margin-top: 70px;
 	min-height:100vh;
@@ -77,24 +75,21 @@ a{
 .Button{
 	border-radius: 5px;
 	background-color: $yellow;
-	color: white;
+	color: $blue;
 	padding: 5px 10px;
 	max-width: 200px;
 }
 
 .btn-primary {
-    color: $blue;
-    background-color: $yellow;
-    border: none;
+	color: $blue;
+	background-color: $yellow;
+	border: none;
 	font-family: 'Roboto', sans-serif;
-
-	
 }
 
 .btn-primary:hover {
-    color: white;
-    background-color: $darkYellow;
- 
+	color: white;
+	background-color: $darkYellow;
 	font-family: 'Roboto', sans-serif;
 	font-weight: normal;
 	border: none;

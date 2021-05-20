@@ -1,9 +1,7 @@
 import React, { useState,useContext } from "react";
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { BASE_URL, headers } from "../../../constants/api";
 import AdminHotelMenu from "../adminform/AdminHotelMenu";
 import AdminMenu from "../adminform/AdminMenu";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -21,10 +19,9 @@ function CreateHotel() {
   });
   const [data, setData] = useState({});
   const { openModal,ismodal } = useContext(AuthContext);
-  const history = useHistory();
   async function onSubmit(data) {
-      setData(data);
-      openModal();
+    setData(data);
+    openModal();
   }
 
   return (
@@ -36,7 +33,6 @@ function CreateHotel() {
           <Form.Group className="form-group-left">
             <Form.Group>
               <Form.Label>Hotel Name</Form.Label>
-              {console.log("test")}
               <Form.Control
                 name="name"
                 {...register("name")}
@@ -46,7 +42,6 @@ function CreateHotel() {
             </Form.Group>
             <Form.Group>
               <Form.Label>Hotel Address</Form.Label>
-              {console.log("test")}
               <Form.Control
                 name="address"
                 {...register("address")}

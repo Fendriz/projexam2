@@ -3,11 +3,12 @@ import AdminMenu from "../adminform/AdminMenu";
 import Form from "react-bootstrap/Form";
 import MessagesId from "./MessagesId";
 import { BASE_URL, headers} from "../../../constants/api";
+import Spinner from "react-bootstrap/Spinner";
 
 function Messages() {
 
   const url = BASE_URL + "contacts";
-
+  const [loading, setLoading] = useState(true);
   const options = { headers };
   const [messages, setMessages] = useState([]);
 
@@ -19,8 +20,8 @@ function Messages() {
         if (json.error) {
           setMessages([]);
         } else {
-          console.log(json)
           setMessages(json);
+          setLoading(false);
      
          
         }
@@ -31,7 +32,8 @@ function Messages() {
 
   return (
       <div className="container_hotel">
-        <AdminMenu active={3}></AdminMenu>
+      <AdminMenu active={3}></AdminMenu>
+      {loading?<Spinner animation="border" className="spinner" />:null}
         <Form className="form_update" id="form_messages">
           <Form.Group className="form_readonly">
             {messages.map((mes,i) => {

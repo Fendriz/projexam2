@@ -325,7 +325,7 @@
     height:100px;
   }
   .card p {
-    font-size:10px;
+    font-size:11px;
   }
   .card__email, .card__text {
     padding:3px;
@@ -377,7 +377,7 @@
     font-size:14px; 
   }
   .adminMenuTop{
-    justify-content:space-around;
+    justify-content:space-between;
     background-color:$lightGrey;
     padding:0;
     margin-top:100px;
@@ -385,7 +385,7 @@
     border:1px solid $grey;
   }
   .adminMenuTop a{
-    padding: 7px 10px;
+    padding: 7px 15px;
     border:none;
   }
   .adminMenuTop a:first-child {
@@ -417,5 +417,11 @@
   }
   .enquire-modal .modal-content {
     padding:0px !important;
+  }
+}
+@media (max-width: 355px) {
+
+  .adminMenuTop a{
+    padding: 7px 10px;
   }
 }
