@@ -40,54 +40,25 @@ function UpdateHotel() {
       setData(data);
       openModal();
     }
+    console.log(hotels)
     function changeSelect(data) {
       hotels.forEach((hotel) => {
-        if (data.target.value === hotel.name) {
+        let trimmedHotel=hotel.name.trim()
+        if (data.target.value === trimmedHotel) {
           setHotel(hotel);
-          setValue("name", hotel.name, {
-            shouldValidate: true,
-            shouldDirty: true,
-          });
-          setValue("address", hotel.address, {
-            shouldValidate: true,
-            shouldDirty: true,
-          });
-          setValue("email", hotel.email, {
-            shouldValidate: true,
-            shouldDirty: true,
-          });
-          setValue("price", hotel.price, {
-            shouldValidate: true,
-            shouldDirty: true,
-          });
-          setValue("maxGuests", hotel.maxGuests, {
-            shouldValidate: true,
-            shouldDirty: true,
-          });
-          setValue("image", hotel.image, {
-            shouldValidate: true,
-            shouldDirty: true,
-          });
-          setValue("lat", hotel.lat, {
-            shouldValidate: true,
-            shouldDirty: true,
-          });
-          setValue("lng", hotel.lng, {
-            shouldValidate: true,
-            shouldDirty: true,
-          });
-          setValue("description", hotel.description, {
-            shouldValidate: true,
-            shouldDirty: true,
-          });
-          setValue("selfCatering", hotel.selfCatering, {
-            shouldValidate: true,
-            shouldDirty: true,
-          });
+          setValue("name", hotel.name) 
+          setValue("address", hotel.address);
+          setValue("email", hotel.email);
+          setValue("price", hotel.price);
+          setValue("maxGuests", hotel.maxGuests);
+          setValue("image", hotel.image);
+          setValue("lat", hotel.lat);
+          setValue("lng", hotel.lng);
+          setValue("description", hotel.description);
+          setValue("selfCatering", hotel.selfCatering);
         }
       });
     }
-
     return (
       <div className="container_hotel">
         <AdminMenu active={1}></AdminMenu>
