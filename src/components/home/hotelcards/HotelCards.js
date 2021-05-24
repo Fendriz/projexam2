@@ -65,7 +65,7 @@ function HotelCards() {
                 <div className="search">
                     <div className ="search_text">
                         <h1>Hotels In Bergen</h1>
-                        <Search handleSearch={filter}/> 
+                        <Search placeholder="Search for hotels in Bergen" handleSearch={filter}/>
                     </div>
                 </div>
                 {error && <div className="error">{error}</div>}
