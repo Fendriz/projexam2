@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 
-function Search({ handleSearch, placeholder}) {
+function Search({ handleSearch}) {
   return (
     <InputGroup id="search-home">
       <FormControl
-        placeholder={placeholder}
+        placeholder="Search for hotels in Bergen"
         onChange={(event) => handleSearch(event.target.value)}
       ></FormControl>
     </InputGroup>
@@ -15,8 +15,8 @@ function Search({ handleSearch, placeholder}) {
 }
 
 Search.propTypes = {
-  handleSearch: PropTypes.func.isRequired,
-  placeholder: PropTypes.string.isRequired
+  handleSearch: PropTypes.func.isRequired
+ 
 };
 
 export default Search;
